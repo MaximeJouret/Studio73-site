@@ -1,63 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
-
-const projects = [
-  {
-    title: "DFCO Dijon",
-    category: "Rebranding",
-    tag: "Concept fictif",
-    description:
-      "Refonte complète de l'identité visuelle du club de football DFCO Dijon. Logo, typographie, supports de communication et présence digitale.",
-    color: "#E53E3E",
-  },
-  {
-    title: "BackOnTrack",
-    category: "Rebranding",
-    description:
-      "Création d'une identité visuelle moderne pour une marque de coaching sportif. Logo, iconographie et déclinaisons sur supports variés.",
-    color: "#FAFAFA",
-  },
-  {
-    title: "Hermès — Vitrine + Maquette & Livret",
-    category: "Vitrine & Print",
-    tag: "Concept fictif",
-    description:
-      "Concept de vitrine et livret éditorial pour la maison Hermès. Mise en page soignée et direction artistique haut de gamme.",
-    color: "#F6AD55",
-  },
-  {
-    title: "Mieux qu'hier — Mocro Kid & Edess",
-    category: "CD Cover",
-    description:
-      "Conception de la pochette d'album « Mieux qu'hier ». Direction artistique, typographie et retouche photo.",
-    color: "#9F7AEA",
-  },
-  {
-    title: "La Vallée",
-    category: "Affiche A3",
-    tag: "Concept fictif",
-    description:
-      "Affiche événementielle grand format. Composition typographique audacieuse et palette de couleurs impactante.",
-    color: "#48BB78",
-  },
-  {
-    title: "Underdog",
-    category: "Logotype",
-    description:
-      "Création d'un logotype distinctif pour la marque Underdog. Recherche typographique et déclinaisons.",
-    color: "#4299E1",
-  },
-  {
-    title: "Journée Mondiale des Droits de l'Homme",
-    category: "Affiche A3",
-    tag: "Concept fictif",
-    description:
-      "Affiche engagée pour la Journée Mondiale des Droits de l'Homme. Communication visuelle au service d'une cause.",
-    color: "#ED8936",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function ProjetsPage() {
   return (
@@ -82,21 +30,34 @@ export default function ProjetsPage() {
 
         {/* Project Grid */}
         <div className="mt-20 space-y-8">
-          {projects.map((project, i) => (
-            <AnimatedSection key={project.title} delay={i * 0.05}>
+          {projects.map((project, i) => {
+            const hasDetailPage = !!project.cover;
+            const cardContent = (
               <div className="group relative rounded-2xl border border-border bg-muted overflow-hidden hover:border-accent/50 transition-all duration-500">
                 <div className="flex flex-col md:flex-row">
-                  {/* Color accent */}
+                  {/* Cover or color block */}
                   <div
-                    className="w-full md:w-80 h-48 md:h-auto flex items-center justify-center relative overflow-hidden"
+                    className="w-full md:w-80 h-56 md:h-auto relative overflow-hidden"
                     style={{ backgroundColor: `${project.color}10` }}
                   >
-                    <span
-                      className="text-7xl md:text-9xl font-bold opacity-20 select-none group-hover:scale-110 transition-transform duration-500"
-                      style={{ color: project.color }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    {project.cover ? (
+                      <Image
+                        src={project.cover}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 320px"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span
+                          className="text-7xl md:text-9xl font-bold opacity-20 select-none group-hover:scale-110 transition-transform duration-500"
+                          style={{ color: project.color }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    )}
                     <div
                       className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{ backgroundColor: project.color }}
@@ -104,7 +65,7 @@ export default function ProjetsPage() {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
+                  <div className="flex-1 p-8 md:p-10 flex flex-col justify-center relative">
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-xs text-muted-foreground uppercase tracking-widest">
                         {project.category}
@@ -117,6 +78,14 @@ export default function ProjetsPage() {
                           </span>
                         </>
                       )}
+                      {project.year && (
+                        <>
+                          <span className="text-border">•</span>
+                          <span className="text-xs text-muted-foreground font-mono">
+                            {project.year}
+                          </span>
+                        </>
+                      )}
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold group-hover:text-accent transition-colors duration-300">
                       {project.title}
@@ -124,11 +93,26 @@ export default function ProjetsPage() {
                     <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
                       {project.description}
                     </p>
+                    {hasDetailPage && (
+                      <span className="absolute top-8 right-8 w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300">
+                        <ArrowUpRight size={18} />
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
-          ))}
+            );
+
+            return (
+              <AnimatedSection key={project.slug} delay={i * 0.05}>
+                {hasDetailPage ? (
+                  <Link href={`/projets/${project.slug}`}>{cardContent}</Link>
+                ) : (
+                  cardContent
+                )}
+              </AnimatedSection>
+            );
+          })}
         </div>
 
         {/* CTA */}
@@ -140,12 +124,12 @@ export default function ProjetsPage() {
             <h3 className="text-3xl md:text-4xl font-bold mb-8">
               Parlons de votre <span className="text-accent">projet</span>
             </h3>
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
             >
               Nous contacter
-            </a>
+            </Link>
           </div>
         </AnimatedSection>
       </div>
