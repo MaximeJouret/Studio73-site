@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { MagneticCursor } from "@/components/ui/magnetic-cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,10 +53,30 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="preconnect"
+          href="https://api.fontshare.com"
+          crossOrigin=""
+        />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScroll />
+        <MagneticCursor
+          cursorSize={14}
+          cursorColor="#FAFAFA"
+          blendMode="difference"
+          magneticFactor={0.3}
+          hoverPadding={14}
+        >
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </MagneticCursor>
       </body>
     </html>
   );

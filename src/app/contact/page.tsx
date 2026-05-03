@@ -56,7 +56,7 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">
+          <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
             Parlons ensemble
           </p>
           <h1 className="text-5xl md:text-7xl font-bold mb-8">Contact</h1>
@@ -77,8 +77,8 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                      <item.icon size={20} className="text-accent" />
+                    <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
+                      <item.icon size={20} className="text-foreground" />
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground uppercase tracking-widest">
@@ -87,7 +87,7 @@ export default function ContactPage() {
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-lg hover:text-accent transition-colors"
+                          className="text-lg hover:text-foreground transition-colors"
                         >
                           {item.value}
                         </a>
@@ -114,11 +114,11 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="group flex items-center gap-4 p-3 rounded-xl hover:bg-muted transition-colors"
                     >
-                      <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-accent group-hover:text-accent transition-all">
+                      <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-foreground group-hover:text-foreground transition-all">
                         <social.icon size={18} />
                       </div>
                       <div>
-                        <p className="font-medium group-hover:text-accent transition-colors">
+                        <p className="font-medium group-hover:text-foreground transition-colors">
                           {social.label}
                         </p>
                         <p className="text-sm text-muted-foreground">
@@ -149,8 +149,8 @@ export default function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-16"
                 >
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <Send size={24} className="text-accent" />
+                  <div className="w-16 h-16 rounded-full bg-foreground/10 flex items-center justify-center mx-auto mb-4">
+                    <Send size={24} className="text-foreground" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">
                     Message envoyé !
@@ -168,7 +168,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
                       placeholder="Votre nom"
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       required
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
                       placeholder="Votre numéro"
                     />
                   </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       required
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent transition-colors"
+                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
                       placeholder="votre@email.com"
                     />
                   </div>
@@ -201,13 +201,13 @@ export default function ContactPage() {
                     <textarea
                       required
                       rows={5}
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent transition-colors resize-none"
+                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors resize-none"
                       placeholder="Décrivez votre projet..."
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-accent hover:bg-accent-hover text-white py-4 rounded-xl text-sm uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-foreground hover:bg-foreground/90 text-background py-4 rounded-xl text-sm uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     Envoyer
                     <Send size={16} />

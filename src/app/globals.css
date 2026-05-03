@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
+  /* Studio 73 — Mono noir & blanc strict */
   --background: #0A0A0A;
   --foreground: #FAFAFA;
-  --accent: #E53E3E;
-  --accent-hover: #C53030;
-  --muted: #1A1A1A;
-  --muted-foreground: #A0A0A0;
-  --border: #2A2A2A;
+  --muted: #141414;
+  --muted-foreground: #8A8A8A;
+  --border: #1F1F1F;
+  /* L'accent N'EST PAS global — il vient des projets uniquement.
+     On garde une variable mais en blanc cassé pour les fallbacks neutres. */
+  --accent: #FAFAFA;
+  --accent-hover: #E5E5E5;
 }
 
 @theme inline {
@@ -18,19 +21,26 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: 'Clash Display', var(--font-geist-sans), system-ui, sans-serif;
+  --font-display: 'Clash Display', sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: 'Clash Display', var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-feature-settings: "ss01", "ss02";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clash Display', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 ::selection {
-  background: var(--accent);
-  color: white;
+  background: var(--foreground);
+  color: var(--background);
 }
 
 ::-webkit-scrollbar {

@@ -23,7 +23,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <Link href="/" className="text-xl font-bold tracking-wider">
-              STUDIO 73 <span className="text-accent">™</span>
+              STUDIO 73 <span className="text-foreground">™</span>
             </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed max-w-xs">
               Agence créative belge fondée à Bruxelles. Identités visuelles
@@ -37,12 +37,12 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="tel:+32472356314" className="hover:text-accent transition-colors">
+                <a href="tel:+32472356314" className="hover:text-foreground transition-colors">
                   +32 472 35 63 14
                 </a>
               </li>
               <li>
-                <a href="mailto:info@studio-73.be" className="hover:text-accent transition-colors">
+                <a href="mailto:info@studio-73.be" className="hover:text-foreground transition-colors">
                   info@studio-73.be
                 </a>
               </li>
@@ -61,7 +61,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-all duration-300"
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />
@@ -80,7 +80,7 @@ export function Footer() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-xs text-muted-foreground hover:text-accent transition-colors"
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
               </Link>

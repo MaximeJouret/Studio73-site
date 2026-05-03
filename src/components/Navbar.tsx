@@ -39,7 +39,7 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold tracking-wider">
-          STUDIO 73 <span className="text-accent">™</span>
+          STUDIO 73 <span className="text-foreground">™</span>
         </Link>
 
         {/* Desktop */}
@@ -48,9 +48,9 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`relative text-sm uppercase tracking-widest transition-colors duration-300 hover:text-accent ${
+                className={`relative text-sm uppercase tracking-widest transition-colors duration-300 hover:text-foreground ${
                   pathname === link.href
-                    ? "text-accent"
+                    ? "text-foreground"
                     : "text-muted-foreground"
                 }`}
               >
@@ -58,7 +58,7 @@ export function Navbar() {
                 {pathname === link.href && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-foreground"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -93,7 +93,7 @@ export function Navbar() {
                     href={link.href}
                     className={`block text-lg uppercase tracking-widest transition-colors ${
                       pathname === link.href
-                        ? "text-accent"
+                        ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >

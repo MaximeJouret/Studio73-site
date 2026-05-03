@@ -1,131 +1,199 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { useRef } from "react";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { MagneticText } from "@/components/ui/magnetic-text";
+import { TextMarquee } from "@/components/ui/text-marquee";
+import { projects } from "@/data/projects";
 
-const featuredProjects = [
-  {
-    title: "DFCO Dijon",
-    category: "Rebranding",
-    tag: "Concept fictif",
-    color: "#E53E3E",
-  },
-  {
-    title: "BackOnTrack",
-    category: "Rebranding",
-    color: "#FAFAFA",
-  },
-  {
-    title: "Hermès",
-    category: "Vitrine + Maquette",
-    tag: "Concept fictif",
-    color: "#F6AD55",
-  },
-  {
-    title: "Mocro Kid & Edess",
-    category: "CD Cover",
-    color: "#9F7AEA",
-  },
-];
+const featuredProjects = projects.filter((p) => p.cover).slice(0, 4);
 
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-background to-background" />
+      {/* === HERO === */}
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        {/* Grid background */}
+        <div
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+            maskImage:
+              "radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 100%)",
+          }}
+        />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-accent uppercase tracking-[0.3em] text-sm mb-6"
-          >
-            Studio créatif — Bruxelles
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight leading-[0.9]"
-          >
-            Agence
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-accent to-foreground">
-              créative
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
-          >
-            Nous concevons des identités visuelles fortes, sincères et
-            impactantes. Du logotype au rebranding complet.
-          </motion.p>
-
+        <motion.div
+          style={{ y: heroY, opacity: heroOpacity }}
+          className="relative z-10 w-full px-6"
+        >
+          {/* Status pill */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ duration: 0.6 }}
+            className="flex justify-center mb-12"
           >
-            <Link
-              href="/projets"
-              className="group inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
-            >
-              Voir nos projets
-              <ArrowRight
-                size={16}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 border border-border hover:border-accent text-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300 hover:text-accent"
-            >
-              Nous contacter
-            </Link>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-muted/50 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-foreground" />
+              </span>
+              <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                Disponible — Bruxelles
+              </span>
+            </div>
           </motion.div>
-        </div>
 
+          {/* Main typographic block */}
+          <div className="flex flex-col items-center text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[16vw] md:text-[12vw] lg:text-[11vw] leading-[0.85]"
+            >
+              <MagneticText
+                text="STUDIO"
+                hoverText="VISION"
+                circleSize={220}
+                circleBg="#FAFAFA"
+                innerColor="#0A0A0A"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[16vw] md:text-[12vw] lg:text-[11vw] leading-[0.85] italic font-light text-foreground/80"
+            >
+              <span className="font-medium tracking-tighter italic">créative</span>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12 text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed"
+            >
+              Identités visuelles fortes, sincères et impactantes. Du logotype
+              au rebranding complet — pour les marques qui veulent marquer.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="mt-10 flex flex-col sm:flex-row gap-4"
+            >
+              <Link
+                href="/projets"
+                data-magnetic
+                className="group inline-flex items-center gap-2 bg-foreground text-background px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-foreground/90 transition-colors"
+              >
+                Voir les projets
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </Link>
+              <Link
+                href="/contact"
+                data-magnetic
+                className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:border-foreground transition-colors"
+              >
+                Démarrer un projet
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
+            className="flex flex-col items-center gap-2"
           >
-            <ArrowDown size={20} className="text-muted-foreground" />
+            <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+              Scroll
+            </span>
+            <ArrowDown size={16} className="text-muted-foreground" />
           </motion.div>
         </motion.div>
       </section>
 
-      {/* Featured Projects */}
+      {/* === MARQUEE INFINI === */}
+      <section className="py-20 border-y border-border bg-background">
+        <TextMarquee
+          baseVelocity={-2}
+          className="text-[14vw] md:text-[10vw] font-bold tracking-[-0.04em] leading-[0.9] text-foreground/95"
+        >
+          <span className="mr-12">RBFA</span>
+          <span className="mr-12 text-foreground/30">⊹</span>
+          <span className="mr-12">DFCO</span>
+          <span className="mr-12 text-foreground/30">⊹</span>
+          <span className="mr-12">HERMÈS</span>
+          <span className="mr-12 text-foreground/30">⊹</span>
+          <span className="mr-12">MOCRO KID</span>
+          <span className="mr-12 text-foreground/30">⊹</span>
+        </TextMarquee>
+        <TextMarquee
+          baseVelocity={2}
+          className="text-[14vw] md:text-[10vw] font-light tracking-[-0.04em] leading-[0.9] italic text-foreground/40"
+        >
+          <span className="mr-12">REBRANDING</span>
+          <span className="mr-12">—</span>
+          <span className="mr-12">IDENTITÉ</span>
+          <span className="mr-12">—</span>
+          <span className="mr-12">LOGOTYPE</span>
+          <span className="mr-12">—</span>
+          <span className="mr-12">MOTION</span>
+          <span className="mr-12">—</span>
+        </TextMarquee>
+      </section>
+
+      {/* === FEATURED PROJECTS === */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <div className="flex items-end justify-between mb-16">
+            <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
-                <p className="text-accent uppercase tracking-[0.3em] text-sm mb-2">
-                  Portfolio
+                <p className="text-muted-foreground uppercase tracking-[0.3em] text-xs mb-3 font-mono">
+                  ⊹ Sélection
                 </p>
-                <h2 className="text-4xl md:text-6xl font-bold">
-                  Projets récents
+                <h2 className="text-5xl md:text-7xl font-medium tracking-tight">
+                  Travaux
+                  <br />
+                  <span className="italic font-light">récents</span>
                 </h2>
               </div>
               <Link
                 href="/projets"
-                className="hidden md:inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors text-sm uppercase tracking-widest"
+                data-magnetic
+                className="hidden md:inline-flex items-center gap-2 border border-border hover:border-foreground rounded-full px-6 py-3 text-sm uppercase tracking-widest transition-colors"
               >
                 Tout voir <ArrowRight size={14} />
               </Link>
@@ -134,28 +202,32 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredProjects.map((project, i) => (
-              <AnimatedSection key={project.title} delay={i * 0.1}>
-                <Link href="/projets" className="group block relative">
-                  <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-muted border border-border relative">
-                    <div
-                      className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
-                      style={{ backgroundColor: project.color }}
-                    />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                      <span
-                        className="text-6xl md:text-8xl font-bold opacity-10 group-hover:opacity-20 transition-opacity duration-500 select-none"
-                        style={{ color: project.color }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+              <AnimatedSection key={project.slug} delay={i * 0.08}>
+                <Link
+                  href={`/projets/${project.slug}`}
+                  className="group block relative"
+                >
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-border relative bg-muted">
+                    {project.cover && (
+                      <Image
+                        src={project.cover}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        sizes="(max-width: 768px) 100vw, 640px"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest bg-background/60 backdrop-blur border border-border text-foreground/80">
+                      {String(i + 1).padStart(2, "0")} — {project.year}
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/80 to-transparent">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
                       {project.tag && (
-                        <span className="text-xs text-accent uppercase tracking-wider mb-1 block">
+                        <span className="text-xs text-foreground/50 uppercase tracking-widest mb-1 block">
                           {project.tag}
                         </span>
                       )}
-                      <h3 className="text-xl font-bold group-hover:text-accent transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-medium group-hover:translate-x-1 transition-transform">
                         {project.title}
                       </h3>
                       <p className="text-sm text-muted-foreground mt-1">
@@ -168,87 +240,45 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-8 md:hidden text-center">
-            <Link
-              href="/projets"
-              className="inline-flex items-center gap-2 text-accent text-sm uppercase tracking-widest"
-            >
-              Tout voir <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Services teaser */}
-      <section className="py-32 px-6 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <p className="text-accent uppercase tracking-[0.3em] text-sm mb-2 text-center">
-              Nos expertises
-            </p>
-            <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
-              Ce que nous faisons
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              "Rebranding",
-              "Logotype",
-              "Charte graphique",
-              "Naming",
-              "Motion design",
-              "Identité visuelle",
-              "Affiche",
-              "Illustration",
-            ].map((service, i) => (
-              <AnimatedSection key={service} delay={i * 0.05}>
-                <Link
-                  href="/services"
-                  className="group block p-6 rounded-xl border border-border hover:border-accent bg-background transition-all duration-300"
-                >
-                  <span className="text-xs text-accent font-mono">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-2 font-medium group-hover:text-accent transition-colors">
-                    {service}
-                  </h3>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <AnimatedSection delay={0.3}>
-            <div className="mt-12 text-center">
+          <AnimatedSection delay={0.2}>
+            <div className="mt-12 md:hidden text-center">
               <Link
-                href="/services"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors text-sm uppercase tracking-widest"
+                href="/projets"
+                className="inline-flex items-center gap-2 text-foreground text-sm uppercase tracking-widest"
               >
-                Voir tous nos services <ArrowRight size={14} />
+                Tout voir <ArrowRight size={14} />
               </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* === CTA === */}
+      <section className="py-32 px-6 border-t border-border">
+        <div className="max-w-5xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Travaillons
-              <br />
-              <span className="text-accent">ensemble</span>
-            </h2>
+            <p className="text-muted-foreground uppercase tracking-[0.3em] text-xs mb-6 font-mono">
+              ⊹ Travaillons ensemble
+            </p>
+            <div className="text-7xl md:text-9xl font-bold tracking-tight leading-[0.9] mb-10">
+              <MagneticText
+                text="HELLO"
+                hoverText="BONJOUR"
+                circleSize={180}
+                circleBg="#FAFAFA"
+                innerColor="#0A0A0A"
+              />
+            </div>
             <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-              Une idée, un projet, une envie ? Parlons-en et créons quelque
-              chose d&apos;unique.
+              Une idée, un projet, une envie ? On en parle autour d&apos;un
+              café — ou en visio si Bruxelles c&apos;est trop loin.
             </p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
+              data-magnetic
+              className="group inline-flex items-center gap-3 bg-foreground text-background px-10 py-5 rounded-full text-sm uppercase tracking-widest hover:bg-foreground/90 transition-colors"
             >
-              Nous contacter
+              Démarrer un projet
               <ArrowRight
                 size={16}
                 className="group-hover:translate-x-1 transition-transform"

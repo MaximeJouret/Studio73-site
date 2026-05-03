@@ -51,7 +51,7 @@ export default function ServicesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">
+          <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
             Nos expertises
           </p>
           <h1 className="text-5xl md:text-7xl font-bold mb-8">Services</h1>
@@ -68,14 +68,14 @@ export default function ServicesPage() {
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service, i) => (
             <AnimatedSection key={service.name} delay={i * 0.03}>
-              <div className="group relative p-6 rounded-2xl border border-border bg-muted hover:border-accent hover:bg-accent/5 transition-all duration-300 h-full">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+              <div className="group relative p-6 rounded-2xl border border-border bg-muted hover:border-foreground hover:bg-foreground/5 transition-all duration-300 h-full">
+                <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center mb-4 group-hover:bg-foreground/20 transition-colors">
                   <service.icon
                     size={22}
-                    className="text-accent"
+                    className="text-foreground"
                   />
                 </div>
-                <h3 className="text-lg font-semibold group-hover:text-accent transition-colors mb-2">
+                <h3 className="text-lg font-semibold group-hover:text-foreground transition-colors mb-2">
                   {service.name}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -98,7 +98,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-foreground hover:bg-foreground/90 text-background px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
             >
               Démarrer un projet
             </Link>

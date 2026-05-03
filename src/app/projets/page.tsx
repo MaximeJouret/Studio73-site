@@ -17,7 +17,7 @@ export default function ProjetsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-accent uppercase tracking-[0.3em] text-sm mb-4">
+          <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
             Portfolio
           </p>
           <h1 className="text-5xl md:text-7xl font-bold mb-8">Projets</h1>
@@ -33,7 +33,7 @@ export default function ProjetsPage() {
           {projects.map((project, i) => {
             const hasDetailPage = !!project.cover;
             const cardContent = (
-              <div className="group relative rounded-2xl border border-border bg-muted overflow-hidden hover:border-accent/50 transition-all duration-500">
+              <div className="group relative rounded-2xl border border-border bg-muted overflow-hidden hover:border-foreground/50 transition-all duration-500">
                 <div className="flex flex-col md:flex-row">
                   {/* Cover or color block */}
                   <div
@@ -73,7 +73,7 @@ export default function ProjetsPage() {
                       {project.tag && (
                         <>
                           <span className="text-border">•</span>
-                          <span className="text-xs text-accent uppercase tracking-widest">
+                          <span className="text-xs text-foreground uppercase tracking-widest">
                             {project.tag}
                           </span>
                         </>
@@ -87,14 +87,14 @@ export default function ProjetsPage() {
                         </>
                       )}
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold group-hover:text-accent transition-colors duration-300">
+                    <h2 className="text-2xl md:text-3xl font-bold group-hover:text-foreground transition-colors duration-300">
                       {project.title}
                     </h2>
                     <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
                       {project.description}
                     </p>
                     {hasDetailPage && (
-                      <span className="absolute top-8 right-8 w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300">
+                      <span className="absolute top-8 right-8 w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground group-hover:bg-foreground group-hover:text-background group-hover:border-foreground transition-all duration-300">
                         <ArrowUpRight size={18} />
                       </span>
                     )}
@@ -122,11 +122,11 @@ export default function ProjetsPage() {
               Envie de créer quelque chose ensemble ?
             </p>
             <h3 className="text-3xl md:text-4xl font-bold mb-8">
-              Parlons de votre <span className="text-accent">projet</span>
+              Parlons de votre <span className="text-foreground">projet</span>
             </h3>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-foreground hover:bg-foreground/90 text-background px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
             >
               Nous contacter
             </Link>
