@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MagneticCursor } from "@/components/ui/magnetic-cursor";
+import { IntroAnimation } from "@/components/IntroAnimation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,25 +54,15 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <link
-          rel="preconnect"
-          href="https://api.fontshare.com"
-          crossOrigin=""
-        />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap"
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <IntroAnimation />
         <SmoothScroll />
         <MagneticCursor
-          cursorSize={14}
+          cursorSize={12}
           cursorColor="#FAFAFA"
           blendMode="difference"
           magneticFactor={0.3}
-          hoverPadding={14}
+          hoverPadding={12}
         >
           <Navbar />
           <main className="flex-1">{children}</main>

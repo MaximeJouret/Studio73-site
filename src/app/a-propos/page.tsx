@@ -3,20 +3,20 @@
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const steps = [
   {
     num: "01",
     title: "Comprendre",
     description:
-      "Tout commence par un échange : nous analysons votre univers, vos objectifs, vos valeurs et votre audience. Cette immersion nous permet de poser des bases solides et cohérentes.",
+      "Tout commence par un échange : nous analysons votre univers, vos objectifs, vos valeurs et votre audience. Cette immersion nous permet de poser des bases solides.",
   },
   {
     num: "02",
     title: "Créer avec sens",
     description:
-      "Nous concevons des identités visuelles, concepts et supports qui ne sont pas seulement esthétiques — ils racontent une histoire, portent un message et renforcent votre positionnement.",
+      "Nous concevons des identités, concepts et supports qui ne sont pas seulement esthétiques — ils racontent une histoire, portent un message et renforcent votre positionnement.",
   },
   {
     num: "03",
@@ -34,34 +34,56 @@ const steps = [
     num: "05",
     title: "Livrer avec impact",
     description:
-      "Notre objectif final : vous fournir des livrables de qualité professionnelle, prêts à être déployés, et qui reflètent pleinement l'identité et l'ambition de votre marque.",
+      "Des livrables de qualité professionnelle, prêts à être déployés, et qui reflètent pleinement l'identité et l'ambition de votre marque.",
   },
 ];
 
 export default function AProposPage() {
   return (
-    <div className="pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="pt-32 md:pt-40 pb-20 px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
-            Notre histoire
+          <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
+            [003] — Studio
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">À propos</h1>
+          <h1
+            className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
+            style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
+          >
+            À propos<span className="text-foreground/30">.</span>
+          </h1>
         </motion.div>
 
-        {/* Intro */}
+        {/* Intro statement */}
         <AnimatedSection>
-          <div className="mt-8 max-w-4xl">
-            <h2 className="text-2xl md:text-4xl font-bold leading-tight mb-8">
-              Studio 73 est une agence créative belge,{" "}
-              <span className="text-foreground">fondée à Bruxelles.</span>
+          <div className="mt-12 md:mt-20 max-w-5xl">
+            <h2
+              className="font-medium uppercase tracking-[-0.03em] leading-[0.9]"
+              style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)" }}
+            >
+              Studio créatif belge,{" "}
+              <span className="italic font-light text-foreground/50">
+                fondé à Bruxelles.
+              </span>
             </h2>
-            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+          </div>
+        </AnimatedSection>
+
+        {/* Intro text */}
+        <AnimatedSection delay={0.1}>
+          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="md:col-span-3">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono">
+                [I]<br />
+                Origine
+              </p>
+            </div>
+            <div className="md:col-span-9 space-y-6 text-foreground/70 text-base md:text-lg leading-relaxed max-w-3xl">
               <p>
                 Studio 73, c&apos;est l&apos;histoire d&apos;un regard jeune,
                 passionné et exigeant porté sur le design graphique.
@@ -76,37 +98,47 @@ export default function AProposPage() {
               <p>
                 Je m&apos;appelle Loïc, et après un stage en agence et une
                 petite expérience en freelance, j&apos;ai décidé de lancer
-                Studio 73 pour donner vie à des projets ambitieux. Notre
-                force ? Une vision jeune, fraîche, à l&apos;affût des
-                tendances, mais toujours guidée par le sens.
+                Studio 73 pour donner vie à des projets ambitieux. Une vision
+                jeune, fraîche, à l&apos;affût des tendances — mais toujours
+                guidée par le sens.
               </p>
             </div>
           </div>
         </AnimatedSection>
 
         {/* Approach */}
-        <div className="mt-32">
+        <div className="mt-32 md:mt-48">
           <AnimatedSection>
-            <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
-              Méthodologie
+            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
+              [II] — Méthode
             </p>
-            <h2 className="text-3xl md:text-5xl font-bold mb-16">
-              Notre approche
+            <h2
+              className="font-medium uppercase tracking-[-0.04em] leading-[0.9] mb-16 md:mb-20"
+              style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
+            >
+              Notre approche.
             </h2>
           </AnimatedSection>
 
-          <div className="space-y-6">
+          <div>
             {steps.map((step, i) => (
-              <AnimatedSection key={step.num} delay={i * 0.08}>
-                <div className="group flex flex-col md:flex-row gap-6 md:gap-12 p-8 rounded-2xl border border-border bg-muted hover:border-foreground/50 transition-all duration-300">
-                  <span className="text-5xl font-bold text-foreground/20 group-hover:text-foreground/40 transition-colors">
-                    {step.num}
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-foreground transition-colors">
+              <AnimatedSection key={step.num} delay={i * 0.06}>
+                <div className="group relative grid grid-cols-12 gap-4 md:gap-8 py-10 md:py-14 border-t border-foreground/10 last:border-b last:border-foreground/10 transition-colors hover:bg-foreground/[0.03] px-2 md:px-6">
+                  <div className="col-span-2 md:col-span-1">
+                    <span className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono">
+                      [{step.num}]
+                    </span>
+                  </div>
+                  <div className="col-span-10 md:col-span-4">
+                    <h3
+                      className="font-medium uppercase tracking-[-0.02em] leading-[0.95] group-hover:translate-x-2 transition-transform duration-500"
+                      style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}
+                    >
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                  </div>
+                  <div className="col-span-12 md:col-span-7">
+                    <p className="text-foreground/60 leading-relaxed max-w-2xl">
                       {step.description}
                     </p>
                   </div>
@@ -118,54 +150,68 @@ export default function AProposPage() {
 
         {/* Mission */}
         <AnimatedSection>
-          <div className="mt-32 p-12 md:p-16 rounded-3xl bg-muted border border-border">
-            <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
-              Notre raison d&apos;être
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">
-              Notre mission
-            </h2>
-            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed max-w-3xl">
-              <p>
-                Née d&apos;une passion pour l&apos;image et les idées qui
-                marquent, notre mission est simple : donner du sens et du
-                style à votre marque.
+          <div className="mt-32 md:mt-48 grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="md:col-span-3">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono">
+                [III]<br />
+                Mission
               </p>
-              <p>
-                Nous croyons au pouvoir d&apos;un visuel bien pensé,
-                d&apos;un logo qui parle, d&apos;un concept qui reste en
-                tête. Chaque projet est conçu avec soin, dans un dialogue
-                constant entre créativité, stratégie et excellence visuelle.
-              </p>
-              <p>
-                Que vous soyez une jeune marque, un projet culturel, une
-                entreprise ambitieuse ou un artiste en quête d&apos;identité,
-                nous vous accompagnons à chaque étape.
-              </p>
+            </div>
+            <div className="md:col-span-9">
+              <h2
+                className="font-medium uppercase tracking-[-0.03em] leading-[0.95] mb-10"
+                style={{ fontSize: "clamp(1.75rem, 4vw, 3.5rem)" }}
+              >
+                Donner du sens et du{" "}
+                <span className="italic font-light text-foreground/50">
+                  style
+                </span>{" "}
+                à votre marque.
+              </h2>
+              <div className="space-y-5 text-foreground/70 text-base md:text-lg leading-relaxed max-w-3xl">
+                <p>
+                  Nous croyons au pouvoir d&apos;un visuel bien pensé, d&apos;un
+                  logo qui parle, d&apos;un concept qui reste en tête. Chaque
+                  projet est conçu avec soin, dans un dialogue constant entre
+                  créativité, stratégie et excellence visuelle.
+                </p>
+                <p>
+                  Que vous soyez une jeune marque, un projet culturel, une
+                  entreprise ambitieuse ou un artiste en quête d&apos;identité,
+                  nous vous accompagnons à chaque étape.
+                </p>
+              </div>
             </div>
           </div>
         </AnimatedSection>
 
         {/* CTA */}
         <AnimatedSection>
-          <div className="mt-32 text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Travaillons{" "}
-              <span className="text-foreground">ensemble</span>
-            </h2>
-            <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-              Une idée, un projet, une envie ? Parlons-en !
+          <div className="mt-32 md:mt-48 py-16 md:py-20 border-t border-foreground/10">
+            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
+              [+] — Et vous ?
             </p>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 bg-foreground hover:bg-foreground/90 text-background px-10 py-5 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
-            >
-              Nous contacter
-              <ArrowRight
-                size={16}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+              <h2
+                className="font-medium uppercase tracking-[-0.04em] leading-[0.9]"
+                style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
+              >
+                Travaillons<br />
+                <span className="italic font-light text-foreground/50">
+                  ensemble.
+                </span>
+              </h2>
+              <Link
+                href="/contact"
+                data-magnetic
+                className="group inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90 w-fit"
+              >
+                <span>Nous contacter</span>
+                <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
+                  <ArrowUpRight size={16} />
+                </span>
+              </Link>
+            </div>
           </div>
         </AnimatedSection>
       </div>

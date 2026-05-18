@@ -2,83 +2,71 @@
 
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import {
-  Palette,
-  PenTool,
-  BookOpen,
-  Type,
-  Layout,
-  Film,
-  ImageIcon,
-  Fingerprint,
-  FrameIcon,
-  Disc3,
-  Brush,
-  Share2,
-  Store,
-  Package,
-  Monitor,
-  Megaphone,
-} from "lucide-react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 const services = [
-  { name: "Rebranding", icon: Palette, description: "Refonte complète d'identité de marque" },
-  { name: "Logotype", icon: PenTool, description: "Création de logos uniques et mémorables" },
-  { name: "Charte graphique", icon: BookOpen, description: "Guides visuels complets pour votre marque" },
-  { name: "Naming", icon: Type, description: "Recherche et création de noms de marque" },
-  { name: "Mise en page", icon: Layout, description: "Design éditorial print et digital" },
-  { name: "Motion design", icon: Film, description: "Animations et vidéos graphiques" },
-  { name: "Traitement d'image", icon: ImageIcon, description: "Retouche et manipulation photo" },
-  { name: "Identité visuelle", icon: Fingerprint, description: "Systèmes visuels cohérents et forts" },
-  { name: "Affiche", icon: FrameIcon, description: "Posters et affiches grand format" },
-  { name: "Cover d'artiste", icon: Disc3, description: "Pochettes d'album et visuels musicaux" },
-  { name: "Illustration", icon: Brush, description: "Illustrations sur mesure" },
-  { name: "Réseaux sociaux", icon: Share2, description: "Templates et contenus visuels" },
-  { name: "Vitrine", icon: Store, description: "Conception de vitrines et espaces" },
-  { name: "Packaging", icon: Package, description: "Design d'emballages produits" },
-  { name: "Étalage", icon: Monitor, description: "Mise en scène et présentation produits" },
-  { name: "Stratégie de marque", icon: Megaphone, description: "Positionnement et stratégie globale" },
+  { name: "Rebranding", description: "Refonte complète d'identité de marque" },
+  { name: "Logotype", description: "Création de logos uniques et mémorables" },
+  { name: "Charte graphique", description: "Guides visuels complets" },
+  { name: "Naming", description: "Recherche et création de noms" },
+  { name: "Mise en page", description: "Design éditorial print et digital" },
+  { name: "Motion design", description: "Animations et vidéos graphiques" },
+  { name: "Traitement d'image", description: "Retouche et manipulation photo" },
+  { name: "Identité visuelle", description: "Systèmes visuels cohérents et forts" },
+  { name: "Affiche", description: "Posters et affiches grand format" },
+  { name: "Cover d'artiste", description: "Pochettes d'album et visuels musicaux" },
+  { name: "Illustration", description: "Illustrations sur mesure" },
+  { name: "Réseaux sociaux", description: "Templates et contenus visuels" },
+  { name: "Vitrine", description: "Conception de vitrines et espaces" },
+  { name: "Packaging", description: "Design d'emballages produits" },
+  { name: "Étalage", description: "Mise en scène et présentation produits" },
+  { name: "Stratégie de marque", description: "Positionnement et stratégie globale" },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="pt-32 md:pt-40 pb-20 px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
-            Nos expertises
+          <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
+            [002] — Expertises
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">Services</h1>
-          <p className="text-muted-foreground text-lg max-w-3xl leading-relaxed">
-            Studio 73 vous accompagne dans la création d&apos;identités
-            visuelles fortes et cohérentes. De la conception de logos au
-            rebranding complet, en passant par la charte graphique, l&apos;affiche,
-            le motion design et la mise en page, nous donnons vie à vos idées
-            avec créativité et précision.
+          <h1
+            className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
+            style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
+          >
+            Services<span className="text-foreground/30">.</span>
+          </h1>
+          <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
+            De la conception de logos au rebranding complet, nous donnons vie
+            à vos idées avec créativité et précision. Pas de bullshit, pas de
+            templates — du sur-mesure.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Services list (uppercase, type-driven) */}
+        <div className="mt-24 md:mt-32 grid grid-cols-1 md:grid-cols-2 gap-x-12">
           {services.map((service, i) => (
-            <AnimatedSection key={service.name} delay={i * 0.03}>
-              <div className="group relative p-6 rounded-2xl border border-border bg-muted hover:border-foreground hover:bg-foreground/5 transition-all duration-300 h-full">
-                <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center mb-4 group-hover:bg-foreground/20 transition-colors">
-                  <service.icon
-                    size={22}
-                    className="text-foreground"
-                  />
+            <AnimatedSection key={service.name} delay={i * 0.025}>
+              <div className="group relative flex items-baseline justify-between gap-6 py-6 border-t border-foreground/10 last:border-b last:border-foreground/10 transition-colors hover:bg-foreground/[0.03] px-2">
+                <div className="flex items-baseline gap-4 md:gap-6 min-w-0">
+                  <span className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono shrink-0 w-8">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h2
+                    className="font-medium uppercase tracking-[-0.02em] leading-none truncate group-hover:translate-x-2 transition-transform duration-500"
+                    style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)" }}
+                  >
+                    {service.name}
+                  </h2>
                 </div>
-                <h3 className="text-lg font-semibold group-hover:text-foreground transition-colors mb-2">
-                  {service.name}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="hidden lg:block text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono shrink-0">
                   {service.description}
                 </p>
               </div>
@@ -88,20 +76,31 @@ export default function ServicesPage() {
 
         {/* CTA */}
         <AnimatedSection delay={0.2}>
-          <div className="mt-32 p-12 rounded-3xl border border-border bg-muted text-center">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Un projet en tête ?
-            </h3>
-            <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Discutons de vos besoins et trouvons ensemble la meilleure
-              approche pour donner vie à votre vision.
+          <div className="mt-32 md:mt-48 py-16 md:py-20 border-t border-foreground/10">
+            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
+              [+] — Vous ne savez pas par où commencer ?
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-foreground hover:bg-foreground/90 text-background px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300"
-            >
-              Démarrer un projet
-            </Link>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+              <h2
+                className="font-medium uppercase tracking-[-0.04em] leading-[0.9]"
+                style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
+              >
+                On en parle<br />
+                <span className="italic font-light text-foreground/50">
+                  autour d&apos;un café ?
+                </span>
+              </h2>
+              <Link
+                href="/contact"
+                data-magnetic
+                className="group inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90 w-fit"
+              >
+                <span>Démarrer un projet</span>
+                <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
+                  <ArrowUpRight size={16} />
+                </span>
+              </Link>
+            </div>
           </div>
         </AnimatedSection>
       </div>

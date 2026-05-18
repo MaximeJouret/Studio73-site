@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Send, ArrowUpRight } from "lucide-react";
 import {
   IconInstagram,
   IconFacebook,
@@ -10,27 +10,6 @@ import {
   IconX,
 } from "@/components/SocialIcons";
 import { useState, FormEvent } from "react";
-
-const contactInfo = [
-  {
-    icon: Phone,
-    label: "Téléphone",
-    value: "+32 472 35 63 14",
-    href: "tel:+32472356314",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@studio-73.be",
-    href: "mailto:info@studio-73.be",
-  },
-  {
-    icon: MapPin,
-    label: "Localisation",
-    value: "Bruxelles, Belgique",
-    href: null,
-  },
-];
 
 const socials = [
   { icon: IconInstagram, href: "https://instagram.com/studio73.be", label: "Instagram", handle: "@studio73.be" },
@@ -48,83 +27,85 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="pt-32 md:pt-40 pb-20 px-6 md:px-10">
+      <div className="max-w-[1500px] mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-foreground uppercase tracking-[0.3em] text-sm mb-4">
-            Parlons ensemble
+          <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
+            [004] — Contact
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">Contact</h1>
-          <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
-            Studio 73 est basé à Bruxelles. Nous travaillons sur rendez-vous,
-            en présentiel ou à distance, selon ce qui vous convient le mieux.
+          <h1
+            className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
+            style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
+          >
+            Contact<span className="text-foreground/30">.</span>
+          </h1>
+          <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
+            Bruxelles, en présentiel ou à distance — selon ce qui vous
+            convient le mieux. On répond vite.
           </p>
         </motion.div>
 
-        <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left - Info + Social */}
-          <div>
+        {/* Main content */}
+        <div className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Left — Direct contact (big type) */}
+          <div className="lg:col-span-7">
             <AnimatedSection>
-              <h2 className="text-2xl font-bold mb-8">
-                Où nous trouver
-              </h2>
-
-              <div className="space-y-6">
-                {contactInfo.map((item) => (
-                  <div key={item.label} className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
-                      <item.icon size={20} className="text-foreground" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-widest">
-                        {item.label}
-                      </p>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="text-lg hover:text-foreground transition-colors"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-lg">{item.value}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
+              <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-6">
+                [I] — Direct
+              </p>
+              <a
+                href="mailto:info@studio-73.be"
+                data-magnetic
+                className="group inline-flex items-baseline gap-3 transition-opacity hover:opacity-60"
+              >
+                <span
+                  className="font-medium uppercase tracking-[-0.04em] leading-[0.9] break-all"
+                  style={{ fontSize: "clamp(1.75rem, 5vw, 5rem)" }}
+                >
+                  info@studio-73.be
+                </span>
+                <ArrowUpRight className="shrink-0 mt-2" size={28} />
+              </a>
+              <div className="mt-6">
+                <a
+                  href="tel:+32472356314"
+                  className="text-foreground/50 hover:text-foreground transition-colors text-base md:text-lg uppercase tracking-[0.2em] font-mono"
+                >
+                  +32 472 35 63 14
+                </a>
               </div>
-            </AnimatedSection>
+              <div className="mt-2 text-foreground/40 text-sm uppercase tracking-[0.2em] font-mono">
+                Bruxelles, Belgique
+              </div>
 
-            <AnimatedSection delay={0.1}>
-              <div className="mt-12">
-                <h3 className="text-lg font-semibold mb-6">
-                  Réseaux sociaux
-                </h3>
-                <div className="space-y-3">
+              <div className="mt-16">
+                <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-6">
+                  [II] — Réseaux
+                </p>
+                <div className="grid grid-cols-2 gap-3 max-w-md">
                   {socials.map((social) => (
                     <a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-4 p-3 rounded-xl hover:bg-muted transition-colors"
+                      data-magnetic
+                      className="group flex items-center justify-between gap-3 p-4 rounded-xl border border-foreground/10 bg-foreground/[0.03] backdrop-blur-md hover:border-foreground hover:bg-foreground/10 transition-all duration-300"
                     >
-                      <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-foreground group-hover:text-foreground transition-all">
-                        <social.icon size={18} />
+                      <div className="flex items-center gap-3 min-w-0">
+                        <social.icon size={16} />
+                        <div className="min-w-0">
+                          <p className="text-sm uppercase tracking-[0.15em] font-medium truncate">
+                            {social.label}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-medium group-hover:text-foreground transition-colors">
-                          {social.label}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {social.handle}
-                        </p>
-                      </div>
+                      <ArrowUpRight size={14} className="shrink-0 opacity-50 group-hover:opacity-100" />
                     </a>
                   ))}
                 </div>
@@ -132,90 +113,75 @@ export default function ContactPage() {
             </AnimatedSection>
           </div>
 
-          {/* Right - Form */}
-          <AnimatedSection delay={0.15}>
-            <div className="p-8 md:p-10 rounded-3xl border border-border bg-muted">
-              <h2 className="text-2xl font-bold mb-2">
-                Contactez-nous !
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                Une idée ? Un projet en tête ? N&apos;hésitez pas, écrivez-nous
-                dès maintenant !
-              </p>
+          {/* Right — Form */}
+          <div className="lg:col-span-5">
+            <AnimatedSection delay={0.1}>
+              <div className="p-6 md:p-8 rounded-2xl border border-foreground/10 bg-foreground/[0.03] backdrop-blur-xl">
+                <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-6">
+                  [III] — Brief express
+                </p>
 
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16"
-                >
-                  <div className="w-16 h-16 rounded-full bg-foreground/10 flex items-center justify-center mx-auto mb-4">
-                    <Send size={24} className="text-foreground" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">
-                    Message envoyé !
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Nous vous répondrons dans les plus brefs délais.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <label className="block text-sm text-muted-foreground mb-2">
-                      Nom *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm text-muted-foreground mb-2">
-                      Téléphone *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
-                      placeholder="Votre numéro"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm text-muted-foreground mb-2">
-                      E-mail *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
-                      placeholder="votre@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm text-muted-foreground mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      required
-                      rows={5}
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors resize-none"
-                      placeholder="Décrivez votre projet..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-foreground hover:bg-foreground/90 text-background py-4 rounded-xl text-sm uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
+                {submitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-16"
                   >
-                    Envoyer
-                    <Send size={16} />
-                  </button>
-                </form>
-              )}
-            </div>
-          </AnimatedSection>
+                    <div className="w-14 h-14 rounded-full bg-foreground text-background flex items-center justify-center mx-auto mb-4">
+                      <Send size={20} />
+                    </div>
+                    <h3 className="text-xl font-medium uppercase tracking-[-0.01em] mb-2">
+                      Message envoyé.
+                    </h3>
+                    <p className="text-foreground/50 text-sm uppercase tracking-[0.15em]">
+                      Réponse sous 24h.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {[
+                      { label: "Nom", type: "text", placeholder: "Votre nom" },
+                      { label: "Email", type: "email", placeholder: "votre@email.com" },
+                      { label: "Téléphone", type: "tel", placeholder: "+32 ..." },
+                    ].map((f) => (
+                      <div key={f.label}>
+                        <label className="block text-[10px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-2">
+                          {f.label} *
+                        </label>
+                        <input
+                          type={f.type}
+                          required
+                          className="w-full bg-transparent border-b border-foreground/15 px-0 py-3 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-foreground transition-colors text-base"
+                          placeholder={f.placeholder}
+                        />
+                      </div>
+                    ))}
+                    <div>
+                      <label className="block text-[10px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-2">
+                        Message *
+                      </label>
+                      <textarea
+                        required
+                        rows={4}
+                        className="w-full bg-transparent border-b border-foreground/15 px-0 py-3 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-foreground transition-colors resize-none text-base"
+                        placeholder="Parlez-nous de votre projet..."
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      data-magnetic
+                      className="group w-full mt-6 inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90"
+                    >
+                      <span>Envoyer</span>
+                      <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
+                        <Send size={14} />
+                      </span>
+                    </button>
+                  </form>
+                )}
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </div>
     </div>
