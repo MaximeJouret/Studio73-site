@@ -24,7 +24,7 @@ export function IntroAnimation() {
       sessionStorage.setItem(SEEN_KEY, "1");
       setShow(false);
       document.body.style.overflow = original;
-    }, 2200);
+    }, 4000);
     return () => {
       clearTimeout(t);
       document.body.style.overflow = original;
@@ -62,8 +62,8 @@ export function IntroAnimation() {
               filter: ["blur(8px)", "blur(0px)", "blur(0px)", "blur(0px)"],
             }}
             transition={{
-              duration: 2.2,
-              times: [0, 0.25, 0.75, 1],
+              duration: 4,
+              times: [0, 0.2, 0.85, 1],
               ease: [0.22, 1, 0.36, 1],
             }}
             className="relative w-[280px] md:w-[420px] h-[120px] md:h-[180px]"

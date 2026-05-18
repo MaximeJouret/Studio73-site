@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "/", label: "Accueil" },
@@ -83,15 +83,8 @@ export function Navbar() {
           })}
         </ul>
 
-        {/* Right CTA (desktop) */}
-        <Link
-          href="/contact"
-          data-magnetic
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[12px] uppercase tracking-[0.2em] font-medium border border-foreground/15 bg-foreground/5 backdrop-blur-2xl hover:bg-foreground hover:text-background hover:border-foreground transition-colors"
-        >
-          Start now
-          <ArrowUpRight size={14} />
-        </Link>
+        {/* Spacer to balance logo on desktop */}
+        <div className="hidden md:block w-[120px]" aria-hidden="true" />
 
         {/* Mobile toggle */}
         <button
@@ -128,14 +121,6 @@ export function Navbar() {
                   </Link>
                 </li>
               ))}
-              <li className="pt-4 mt-4 border-t border-foreground/10">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm uppercase tracking-[0.2em] font-medium bg-foreground text-background"
-                >
-                  Start now <ArrowUpRight size={14} />
-                </Link>
-              </li>
             </ul>
           </motion.div>
         )}

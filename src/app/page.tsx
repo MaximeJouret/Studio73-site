@@ -22,111 +22,36 @@ export default function Home() {
 
   return (
     <>
-      {/* ============ HERO — Video background à la Ciridae ============ */}
+      {/* ============ HERO — Video full-bleed (no text overlay) ============ */}
       <section
         ref={heroRef}
         className="relative h-screen min-h-[640px] w-full overflow-hidden bg-background"
       >
-        {/* Video background full-bleed */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster="/images/projects/rbfa/rbfa-06.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video/intro.mp4" type="video/mp4" />
-        </video>
-
-        {/* Dark overlay for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/40 to-background/80 pointer-events-none" />
-        <div className="absolute inset-0 bg-background/30 pointer-events-none" />
-
-        {/* Hero content overlay */}
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
-          className="relative z-10 h-full w-full flex flex-col"
+          className="absolute inset-0"
         >
-          {/* Top meta line */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.4 }}
-            className="px-6 md:px-10 pt-32 md:pt-36 flex items-center justify-between"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/images/projects/rbfa/rbfa-06.jpg"
+            className="absolute inset-0 w-full h-full object-cover"
           >
-            <span className="text-[11px] uppercase tracking-[0.3em] text-foreground/60 font-mono">
-              ⊹ Studio créatif · Bruxelles · Est. 2024
-            </span>
-            <span className="hidden md:inline text-[11px] uppercase tracking-[0.3em] text-foreground/60 font-mono">
-              [001] — Identités qui marquent
-            </span>
-          </motion.div>
-
-          {/* Main typographic block */}
-          <div className="flex-1 flex flex-col justify-end px-6 md:px-10 pb-16 md:pb-24">
-            <motion.h1
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1.1,
-                delay: 2.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="font-medium uppercase tracking-[-0.04em] leading-[0.85] text-foreground"
-              style={{
-                fontSize: "clamp(3.5rem, 13vw, 18rem)",
-              }}
-            >
-              <span className="block">CRÉATEURS</span>
-              <span className="block text-foreground/40">D&apos;IDENTITÉS</span>
-              <span className="block">QUI MARQUENT.</span>
-            </motion.h1>
-
-            {/* Bottom row: tagline + CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 2.6 }}
-              className="mt-12 md:mt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
-            >
-              <p className="max-w-md text-foreground/70 text-base md:text-lg leading-relaxed">
-                Studio 73 — agence créative belge basée à Bruxelles.
-                Rebranding, logotype, motion design. Pas sages. Pas génériques.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/projets"
-                  data-magnetic
-                  className="group inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90"
-                >
-                  <span>Voir les projets</span>
-                  <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
-                    <ArrowRight size={16} />
-                  </span>
-                </Link>
-                <Link
-                  href="/contact"
-                  data-magnetic
-                  className="group inline-flex items-center justify-between gap-6 border border-foreground/20 backdrop-blur-md bg-foreground/5 hover:bg-foreground/10 text-foreground pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors"
-                >
-                  <span>Démarrer un projet</span>
-                  <span className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
-                    <ArrowRight size={16} />
-                  </span>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+            <source src="/video/intro.mp4" type="video/mp4" />
+          </video>
         </motion.div>
+
+        {/* Subtle bottom gradient to blend into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background pointer-events-none" />
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3 }}
+          transition={{ delay: 4.4 }}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
         >
           <motion.div
@@ -134,7 +59,7 @@ export default function Home() {
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex flex-col items-center gap-1"
           >
-            <ArrowDown size={14} className="text-foreground/50" />
+            <ArrowDown size={14} className="text-foreground/60" />
           </motion.div>
         </motion.div>
       </section>

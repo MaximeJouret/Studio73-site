@@ -4,7 +4,6 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { MagneticCursor } from "@/components/ui/magnetic-cursor";
 import { IntroAnimation } from "@/components/IntroAnimation";
 
 const geistSans = Geist({
@@ -57,17 +56,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <IntroAnimation />
         <SmoothScroll />
-        <MagneticCursor
-          cursorSize={12}
-          cursorColor="#FAFAFA"
-          blendMode="difference"
-          magneticFactor={0.3}
-          hoverPadding={12}
-        >
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </MagneticCursor>
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
