@@ -39,6 +39,12 @@ yarn-error.log*
 # Local working images (originals before optimization)
 /Pictures/
 
+# Local source assets — already copied into /public
+/Inspirations/
+/Landing page items/
+/typographie/
+/ui-ux-pro-max-skill/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
