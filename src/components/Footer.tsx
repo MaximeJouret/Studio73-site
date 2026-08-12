@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { IconInstagram, IconFacebook, IconLinkedin, IconX } from "./SocialIcons";
 
 const socials = [
@@ -22,12 +23,18 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <Link href="/" className="text-xl font-bold tracking-wider">
-              STUDIO 73 <span className="text-foreground">™</span>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/logo_blanc.svg"
+                alt="Studio 73"
+                width={140}
+                height={28}
+                className="h-6 w-auto object-contain"
+              />
             </Link>
             <p className="mt-4 text-muted-foreground text-sm leading-relaxed max-w-xs">
-              Agence créative belge fondée à Bruxelles. Identités visuelles
-              fortes, sincères et impactantes.
+              Agence créative belge fondée à Bruxelles. Nous développons des
+              projets créatifs adaptés à chaque besoin.
             </p>
           </div>
 

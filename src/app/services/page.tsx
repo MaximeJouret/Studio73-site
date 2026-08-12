@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const services = [
   { name: "Rebranding", description: "Refonte complète d'identité de marque" },
-  { name: "Logotype", description: "Création de logos uniques et mémorables" },
+  { name: "Logotype", description: "Création de logos" },
   { name: "Charte graphique", description: "Guides visuels complets" },
   { name: "Naming", description: "Recherche et création de noms" },
   { name: "Mise en page", description: "Design éditorial print et digital" },
@@ -41,7 +41,7 @@ export default function ServicesPage() {
             className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
             style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
           >
-            Services<span className="text-foreground/30">.</span>
+            Services<span className="text-foreground">.</span>
           </h1>
           <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
             De la conception de logos au rebranding complet, nous donnons vie
@@ -82,13 +82,11 @@ export default function ServicesPage() {
             </p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
               <h2
-                className="font-medium uppercase tracking-[-0.04em] leading-[0.9]"
+                className="font-medium uppercase tracking-[-0.04em] leading-[0.9] text-foreground"
                 style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
               >
                 On en parle<br />
-                <span className="italic font-light text-foreground/50">
-                  autour d&apos;un café ?
-                </span>
+                autour d&apos;un café ?
               </h2>
               <Link
                 href="/contact"

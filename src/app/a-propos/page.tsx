@@ -32,7 +32,7 @@ const steps = [
   },
   {
     num: "05",
-    title: "Livrer avec impact",
+    title: "Finaliser & livrer",
     description:
       "Des livrables de qualité professionnelle, prêts à être déployés, et qui reflètent pleinement l'identité et l'ambition de votre marque.",
   },
@@ -52,10 +52,10 @@ export default function AProposPage() {
             [003] — Studio
           </p>
           <h1
-            className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
+            className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10 text-foreground"
             style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
           >
-            À propos<span className="text-foreground/30">.</span>
+            À propos.
           </h1>
         </motion.div>
 
@@ -63,13 +63,10 @@ export default function AProposPage() {
         <AnimatedSection>
           <div className="mt-12 md:mt-20 max-w-5xl">
             <h2
-              className="font-medium uppercase tracking-[-0.03em] leading-[0.9]"
+              className="font-medium uppercase tracking-[-0.03em] leading-[0.9] text-foreground"
               style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)" }}
             >
-              Studio créatif belge,{" "}
-              <span className="italic font-light text-foreground/50">
-                fondé à Bruxelles.
-              </span>
+              Agence créative belge, fondée à Bruxelles.
             </h2>
           </div>
         </AnimatedSection>
@@ -159,21 +156,17 @@ export default function AProposPage() {
             </div>
             <div className="md:col-span-9">
               <h2
-                className="font-medium uppercase tracking-[-0.03em] leading-[0.95] mb-10"
+                className="font-medium uppercase tracking-[-0.03em] leading-[0.95] mb-10 text-foreground"
                 style={{ fontSize: "clamp(1.75rem, 4vw, 3.5rem)" }}
               >
-                Donner du sens et du{" "}
-                <span className="italic font-light text-foreground/50">
-                  style
-                </span>{" "}
-                à votre marque.
+                Une approche créative adaptée à chaque projet.
               </h2>
               <div className="space-y-5 text-foreground/70 text-base md:text-lg leading-relaxed max-w-3xl">
                 <p>
                   Nous croyons au pouvoir d&apos;un visuel bien pensé, d&apos;un
                   logo qui parle, d&apos;un concept qui reste en tête. Chaque
                   projet est conçu avec soin, dans un dialogue constant entre
-                  créativité, stratégie et excellence visuelle.
+                  créativité, stratégie et esthétique.
                 </p>
                 <p>
                   Que vous soyez une jeune marque, un projet culturel, une
@@ -193,13 +186,11 @@ export default function AProposPage() {
             </p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
               <h2
-                className="font-medium uppercase tracking-[-0.04em] leading-[0.9]"
+                className="font-medium uppercase tracking-[-0.04em] leading-[0.9] text-foreground"
                 style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
               >
                 Travaillons<br />
-                <span className="italic font-light text-foreground/50">
-                  ensemble.
-                </span>
+                ensemble.
               </h2>
               <Link
                 href="/contact"

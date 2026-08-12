@@ -42,7 +42,7 @@ export default function ContactPage() {
             className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
             style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
           >
-            Contact<span className="text-foreground/30">.</span>
+            Contact<span className="text-foreground">.</span>
           </h1>
           <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
             Bruxelles, en présentiel ou à distance — selon ce qui vous

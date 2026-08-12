@@ -51,7 +51,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 4.4 }}
+          transition={{ delay: 2.4 }}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
         >
           <motion.div
@@ -71,13 +71,13 @@ export default function Home() {
           className="uppercase font-medium tracking-[-0.04em] leading-[0.9] text-foreground"
           repeat={6}
         >
-          <span className="mr-12 text-[12vw] md:text-[9vw]">RBFA</span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">RBFA <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
-          <span className="mr-12 text-[12vw] md:text-[9vw]">DFCO</span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">DFCO <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
-          <span className="mr-12 text-[12vw] md:text-[9vw]">HERMÈS</span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">HERMÈS <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
-          <span className="mr-12 text-[12vw] md:text-[9vw]">MOCRO KID</span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">MOCRO KID <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
         </TextMarquee>
       </section>
@@ -183,11 +183,10 @@ export default function Home() {
               [003] — Manifeste
             </p>
             <h2
-              className="font-medium uppercase tracking-[-0.04em] leading-[0.9] max-w-5xl"
+              className="font-medium uppercase tracking-[-0.04em] leading-[0.9] max-w-5xl text-foreground"
               style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
             >
-              On ne dessine pas <span className="text-foreground/30">pour plaire.</span>{" "}
-              On dessine pour <span className="italic font-light">marquer.</span>
+              On ne suit pas les codes. On les redessine.
             </h2>
           </AnimatedSection>
         </div>
@@ -206,7 +205,7 @@ export default function Home() {
                 style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
               >
                 Démarrons<br />
-                <span className="italic font-light text-foreground/60">ensemble.</span>
+                <span className="text-foreground">ensemble.</span>
               </h2>
               <div className="flex flex-col gap-4 md:items-end">
                 <a

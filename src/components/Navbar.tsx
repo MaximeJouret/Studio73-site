@@ -46,7 +46,7 @@ export function Navbar() {
           aria-label="Studio 73 — Accueil"
         >
           <Image
-            src="/logo-white.png"
+            src="/logo_blanc.svg"
             alt="Studio 73"
             width={120}
             height={32}

@@ -24,12 +24,11 @@ export default function ProjetsPage() {
             className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
             style={{ fontSize: "clamp(3rem, 11vw, 12rem)" }}
           >
-            Projets<span className="text-foreground/30">.</span>
+            Projets<span className="text-foreground">.</span>
           </h1>
           <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
-            Chaque projet est une collaboration unique — une rencontre entre
-            une vision et notre créativité. Marques, concepts, univers que
-            nous avons fait émerger.
+            Chaque projet est une collaboration unique — pensée autour de vos
+            besoins, de votre identité et de vos objectifs.
           </p>
         </motion.div>
 
@@ -130,13 +129,11 @@ export default function ProjetsPage() {
             </p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
               <h2
-                className="font-medium uppercase tracking-[-0.04em] leading-[0.9]"
+                className="font-medium uppercase tracking-[-0.04em] leading-[0.9] text-foreground"
                 style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
               >
                 Le prochain<br />
-                <span className="italic font-light text-foreground/50">
-                  pourrait être le vôtre.
-                </span>
+                pourrait être le vôtre.
               </h2>
               <Link
                 href="/contact"
