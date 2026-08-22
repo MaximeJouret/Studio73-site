@@ -4,23 +4,14 @@ export type Project = {
   category: string;
   tag?: string;
   description: string;
-  /** Couleur d'accent dominante pour ce projet (hex) */
   color: string;
-  /** Couleur secondaire (optionnelle) */
   colorSecondary?: string;
-  /** Couleur de fond recommandée pour le projet (par défaut #0A0A0A) */
   background?: string;
-  /** Année du projet */
   year?: string;
-  /** Client / partenaire */
   client?: string;
-  /** Liste des images du projet (chemins relatifs à /public) */
   images?: string[];
-  /** Image principale utilisée comme cover dans la galerie */
   cover?: string;
-  /** Tags / catégories de design */
   disciplines?: string[];
-  /** Description longue pour la page détail */
   fullDescription?: string;
 };
 
@@ -46,20 +37,10 @@ export const projects: Project[] = [
       "Photographie",
       "Mockups produit",
     ],
-    cover: "/images/projects/rbfa/rbfa-06.jpg",
-    images: [
-      "/images/projects/rbfa/rbfa-01.jpg",
-      "/images/projects/rbfa/rbfa-02.jpg",
-      "/images/projects/rbfa/rbfa-03.jpg",
-      "/images/projects/rbfa/rbfa-04.jpg",
-      "/images/projects/rbfa/rbfa-05.jpg",
-      "/images/projects/rbfa/rbfa-06.jpg",
-      "/images/projects/rbfa/rbfa-07.jpg",
-      "/images/projects/rbfa/rbfa-08.jpg",
-      "/images/projects/rbfa/rbfa-09.jpg",
-      "/images/projects/rbfa/rbfa-10.jpg",
-      "/images/projects/rbfa/rbfa-11.jpg",
-    ],
+    cover: "/images/projects/rbfa/rbfa-06.png",
+    images: Array.from({ length: 11 }, (_, i) =>
+      `/images/projects/rbfa/rbfa-${String(i + 1).padStart(2, "0")}.png`
+    ),
   },
   {
     slug: "dfco-dijon",
@@ -76,7 +57,7 @@ export const projects: Project[] = [
     client: "DFCO Dijon",
     disciplines: ["Rebranding", "Logotype", "Identité visuelle", "Web design", "Print"],
     cover: "/images/projects/dfco-dijon/dijon-01.jpg",
-    images: Array.from({ length: 12 }, (_, i) =>
+    images: Array.from({ length: 28 }, (_, i) =>
       `/images/projects/dfco-dijon/dijon-${String(i + 1).padStart(2, "0")}.jpg`
     ),
   },
@@ -89,6 +70,10 @@ export const projects: Project[] = [
     color: "#FAFAFA",
     year: "2025",
     disciplines: ["Rebranding", "Logotype", "Iconographie"],
+    cover: "/images/projects/backontrack/backontrack-01.jpg",
+    images: Array.from({ length: 5 }, (_, i) =>
+      `/images/projects/backontrack/backontrack-${String(i + 1).padStart(2, "0")}.jpg`
+    ),
   },
   {
     slug: "hermes",
@@ -126,6 +111,52 @@ export const projects: Project[] = [
     images: Array.from({ length: 3 }, (_, i) =>
       `/images/projects/mocro-kid-edess/mocro-${String(i + 1).padStart(2, "0")}.jpg`
     ),
+  },
+  {
+    slug: "antwerp",
+    title: "Royal Antwerp FC",
+    category: "Concept Maillot",
+    tag: "Concept fictif",
+    description:
+      "Concept de maillot limited edition pour le Royal Antwerp FC. Direction artistique et mockups produit.",
+    color: "#C8102E",
+    background: "#0A0A0A",
+    year: "2025",
+    client: "Royal Antwerp FC (concept)",
+    disciplines: ["Direction artistique", "Mockups produit", "Identité visuelle"],
+    cover: "/images/projects/antwerp/antwerp-01.jpg",
+    images: [
+      "/images/projects/antwerp/antwerp-01.jpg",
+      "/images/projects/antwerp/antwerp-02.jpg",
+    ],
+  },
+  {
+    slug: "jimbo",
+    title: "Jimbo",
+    category: "Identité visuelle & Packaging",
+    description:
+      "Création de l'identité visuelle complète pour Jimbo. Logo, packaging, menus, signalétique et déclinaisons sur tous supports.",
+    fullDescription:
+      "Identité visuelle complète pour Jimbo : logotype, charte graphique, design de menus, packaging, signalétique vitrine, sous-plats, stickers et déclinaisons réseaux sociaux. Une direction artistique cohérente du logo au point de vente.",
+    color: "#D4A574",
+    background: "#0A0A0A",
+    year: "2025",
+    client: "Jimbo",
+    disciplines: ["Identité visuelle", "Logotype", "Packaging", "Signalétique", "Print"],
+    cover: "/images/projects/jimbo/jimbo-01.png",
+    images: [
+      "/images/projects/jimbo/jimbo-01.png",
+      "/images/projects/jimbo/jimbo-02.jpg",
+      "/images/projects/jimbo/jimbo-03.jpg",
+      "/images/projects/jimbo/jimbo-04.jpg",
+      "/images/projects/jimbo/jimbo-05.jpg",
+      "/images/projects/jimbo/jimbo-06.png",
+      "/images/projects/jimbo/jimbo-07.jpg",
+      "/images/projects/jimbo/jimbo-08.jpg",
+      "/images/projects/jimbo/jimbo-09.jpg",
+      "/images/projects/jimbo/jimbo-10.jpg",
+      "/images/projects/jimbo/jimbo-11.jpg",
+    ],
   },
   {
     slug: "affiches",
