@@ -37,7 +37,7 @@ export default function Home() {
             loop
             playsInline
             preload="auto"
-            poster="/images/projects/rbfa/rbfa-06.png"
+            poster="/images/projects/rbfa/rbfa-06.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/video/intro.mp4" type="video/mp4" />
