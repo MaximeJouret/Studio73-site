@@ -4,9 +4,9 @@ import { IconInstagram, IconFacebook, IconLinkedin, IconX } from "./SocialIcons"
 
 const socials = [
   { icon: IconInstagram, href: "https://instagram.com/studio73.be", label: "Instagram" },
-  { icon: IconFacebook, href: "https://facebook.com/Studio73.be", label: "Facebook" },
-  { icon: IconLinkedin, href: "https://linkedin.com/company/studio-73", label: "LinkedIn" },
-  { icon: IconX, href: "https://x.com/studio73", label: "X" },
+  { icon: IconFacebook, href: "https://www.facebook.com/profile.php?id=61576844498498", label: "Facebook" },
+  { icon: IconLinkedin, href: "https://www.linkedin.com/company/studio73-be", label: "LinkedIn" },
+  { icon: IconX, href: "https://x.com/studio_73_", label: "X" },
 ];
 
 const navLinks = [

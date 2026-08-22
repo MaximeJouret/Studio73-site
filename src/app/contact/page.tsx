@@ -13,9 +13,9 @@ import { useState, FormEvent } from "react";
 
 const socials = [
   { icon: IconInstagram, href: "https://instagram.com/studio73.be", label: "Instagram", handle: "@studio73.be" },
-  { icon: IconFacebook, href: "https://facebook.com/Studio73.be", label: "Facebook", handle: "@Studio73" },
-  { icon: IconLinkedin, href: "https://linkedin.com/company/studio-73", label: "LinkedIn", handle: "Studio 73" },
-  { icon: IconX, href: "https://x.com/studio73", label: "X", handle: "@studio73" },
+  { icon: IconFacebook, href: "https://www.facebook.com/profile.php?id=61576844498498", label: "Facebook", handle: "@Studio73" },
+  { icon: IconLinkedin, href: "https://www.linkedin.com/company/studio73-be", label: "LinkedIn", handle: "Studio 73" },
+  { icon: IconX, href: "https://x.com/studio_73_", label: "X", handle: "@studio_73_" },
 ];
 
 export default function ContactPage() {
@@ -36,7 +36,7 @@ export default function ContactPage() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-            [004] — Contact
+            [004] Contact
           </p>
           <h1
             className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
@@ -45,8 +45,8 @@ export default function ContactPage() {
             Contact<span className="text-foreground">.</span>
           </h1>
           <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
-            Bruxelles, en présentiel ou à distance — selon ce qui vous
-            convient le mieux. On répond vite.
+            Basés à Bruxelles, disponibles partout. En présentiel ou à
+            distance, selon vos préférences.
           </p>
         </motion.div>
 
@@ -56,7 +56,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <AnimatedSection>
               <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-6">
-                [I] — Direct
+                [I] Direct
               </p>
               <a
                 href="mailto:info@studio-73.be"
@@ -85,7 +85,7 @@ export default function ContactPage() {
 
               <div className="mt-16">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-6">
-                  [II] — Réseaux
+                  [II] Réseaux
                 </p>
                 <div className="grid grid-cols-2 gap-3 max-w-md">
                   {socials.map((social) => (
@@ -118,7 +118,7 @@ export default function ContactPage() {
             <AnimatedSection delay={0.1}>
               <div className="p-6 md:p-8 rounded-2xl border border-foreground/10 bg-foreground/[0.03] backdrop-blur-xl">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-6">
-                  [III] — Brief express
+                  [III] Brief express
                 </p>
 
                 {submitted ? (

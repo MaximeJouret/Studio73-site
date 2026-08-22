@@ -4,41 +4,32 @@ export type Project = {
   category: string;
   tag?: string;
   description: string;
-  /** Couleur d'accent dominante pour ce projet (hex) */
   color: string;
-  /** Couleur secondaire (optionnelle) */
   colorSecondary?: string;
-  /** Couleur de fond recommandée pour le projet (par défaut #0A0A0A) */
   background?: string;
-  /** Année du projet */
   year?: string;
-  /** Client / partenaire */
   client?: string;
-  /** Liste des images du projet (chemins relatifs à /public) */
   images?: string[];
-  /** Image principale utilisée comme cover dans la galerie */
   cover?: string;
-  /** Tags / catégories de design */
   disciplines?: string[];
-  /** Description longue pour la page détail */
   fullDescription?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "rbfa",
-    title: "RBFA × Adidas",
+    title: "RBFA x Adidas",
     category: "Rebranding & Concept Design",
-    tag: "Concept fictif — Limited Edition",
+    tag: "Concept fictif, Limited Edition",
     description:
       "Concept de collaboration limited edition entre Adidas et la Royal Belgian Football Association. Direction artistique sombre et incisive autour de la devise nationale « L'Union fait la Force ».",
     fullDescription:
-      "Concept de collection limited edition imaginé pour la collaboration Adidas × RBFA à l'occasion de la qualification pour la Coupe du Monde 2026. La direction artistique exploite l'identité historique des Diables Rouges en mêlant typographie gothique, contraste extrême noir/rouge sang et iconographie héritée du folklore belge. La palette se construit sur une base noire profonde rehaussée de rouge écarlate et touches de jaune solaire — un clin d'œil aux couleurs nationales sans tomber dans le tricolore évident. Mockups : maillots, écharpe, t-shirt, drapeaux de stade, signalétique du King Baudouin Stadium.",
+      "Concept de collection limited edition imaginé pour la collaboration Adidas x RBFA à l'occasion de la qualification pour la Coupe du Monde 2026. La direction artistique exploite l'identité historique des Diables Rouges en mêlant typographie gothique, contraste extrême noir/rouge sang et iconographie héritée du folklore belge. La palette se construit sur une base noire profonde rehaussée de rouge écarlate et touches de jaune solaire, un clin d'œil aux couleurs nationales sans tomber dans le tricolore évident. Mockups : maillots, écharpe, t-shirt, drapeaux de stade, signalétique du King Baudouin Stadium.",
     color: "#E10600",
     colorSecondary: "#FFCD00",
     background: "#000000",
     year: "2026",
-    client: "Adidas × RBFA",
+    client: "Adidas x RBFA",
     disciplines: [
       "Direction artistique",
       "Identité visuelle",
@@ -47,19 +38,9 @@ export const projects: Project[] = [
       "Mockups produit",
     ],
     cover: "/images/projects/rbfa/rbfa-06.jpg",
-    images: [
-      "/images/projects/rbfa/rbfa-01.jpg",
-      "/images/projects/rbfa/rbfa-02.jpg",
-      "/images/projects/rbfa/rbfa-03.jpg",
-      "/images/projects/rbfa/rbfa-04.jpg",
-      "/images/projects/rbfa/rbfa-05.jpg",
-      "/images/projects/rbfa/rbfa-06.jpg",
-      "/images/projects/rbfa/rbfa-07.jpg",
-      "/images/projects/rbfa/rbfa-08.jpg",
-      "/images/projects/rbfa/rbfa-09.jpg",
-      "/images/projects/rbfa/rbfa-10.jpg",
-      "/images/projects/rbfa/rbfa-11.jpg",
-    ],
+    images: Array.from({ length: 11 }, (_, i) =>
+      `/images/projects/rbfa/rbfa-${String(i + 1).padStart(2, "0")}.jpg`
+    ),
   },
   {
     slug: "dfco-dijon",
@@ -76,8 +57,44 @@ export const projects: Project[] = [
     client: "DFCO Dijon",
     disciplines: ["Rebranding", "Logotype", "Identité visuelle", "Web design", "Print"],
     cover: "/images/projects/dfco-dijon/dijon-01.jpg",
-    images: Array.from({ length: 12 }, (_, i) =>
+    images: Array.from({ length: 27 }, (_, i) =>
       `/images/projects/dfco-dijon/dijon-${String(i + 1).padStart(2, "0")}.jpg`
+    ),
+  },
+  {
+    slug: "antwerp-poster-festival",
+    title: "Antwerp Poster Festival",
+    category: "Affiche & Print",
+    tag: "Concept fictif",
+    description:
+      "Création d'affiches pour le festival Antwerp Poster Festival. Direction artistique audacieuse et compositions typographiques fortes.",
+    fullDescription:
+      "Création d'affiches pour le festival Antwerp Poster Festival. Direction artistique audacieuse, compositions typographiques fortes et recherche graphique constante pour faire passer un message en un seul visuel.",
+    color: "#FAFAFA",
+    background: "#0A0A0A",
+    year: "2025",
+    disciplines: ["Affiche", "Typographie", "Print", "Direction artistique"],
+    cover: "/images/projects/antwerp-poster-festival/antwerp-01.jpg",
+    images: Array.from({ length: 2 }, (_, i) =>
+      `/images/projects/antwerp-poster-festival/antwerp-${String(i + 1).padStart(2, "0")}.jpg`
+    ),
+  },
+  {
+    slug: "jimbo",
+    title: "Jimbo",
+    category: "Rebranding",
+    description:
+      "Création d'une identité visuelle complète pour Jimbo. Logo, charte graphique et déclinaisons sur supports variés.",
+    fullDescription:
+      "Création d'une identité visuelle complète pour Jimbo. Du logotype à la charte graphique, en passant par les déclinaisons print et digitales. Un travail de branding complet, pensé pour marquer les esprits.",
+    color: "#FAFAFA",
+    background: "#0A0A0A",
+    year: "2025",
+    client: "Jimbo",
+    disciplines: ["Rebranding", "Logotype", "Identité visuelle", "Print"],
+    cover: "/images/projects/jimbo/jimbo-01.jpg",
+    images: Array.from({ length: 9 }, (_, i) =>
+      `/images/projects/jimbo/jimbo-${String(i + 1).padStart(2, "0")}.jpg`
     ),
   },
   {
@@ -86,13 +103,21 @@ export const projects: Project[] = [
     category: "Rebranding",
     description:
       "Création d'une identité visuelle moderne pour une marque de coaching sportif. Logo, iconographie et déclinaisons sur supports variés.",
+    fullDescription:
+      "Création d'une identité visuelle moderne pour BackOnTrack, une marque de coaching sportif. Logo, iconographie et déclinaisons sur supports variés. Un branding dynamique et motivant.",
     color: "#FAFAFA",
+    background: "#0A0A0A",
     year: "2025",
+    client: "BackOnTrack",
     disciplines: ["Rebranding", "Logotype", "Iconographie"],
+    cover: "/images/projects/backontrack/backontrack-01.jpg",
+    images: Array.from({ length: 5 }, (_, i) =>
+      `/images/projects/backontrack/backontrack-${String(i + 1).padStart(2, "0")}.jpg`
+    ),
   },
   {
     slug: "hermes",
-    title: "Hermès — Vitrine + Maquette & Livret",
+    title: "Hermès, Vitrine + Maquette & Livret",
     category: "Vitrine & Print",
     tag: "Concept fictif",
     description:
@@ -111,7 +136,7 @@ export const projects: Project[] = [
   },
   {
     slug: "mocro-kid-edess",
-    title: "Mieux qu'hier — Mocro Kid & Edess",
+    title: "Mieux qu'hier, Mocro Kid & Edess",
     category: "CD Cover",
     description:
       "Conception de la pochette d'album « Mieux qu'hier ». Direction artistique, typographie et retouche photo.",
@@ -126,34 +151,6 @@ export const projects: Project[] = [
     images: Array.from({ length: 3 }, (_, i) =>
       `/images/projects/mocro-kid-edess/mocro-${String(i + 1).padStart(2, "0")}.jpg`
     ),
-  },
-  {
-    slug: "affiches",
-    title: "Affiches A3 — Sélection",
-    category: "Affiche & Print",
-    tag: "Sélection de travaux",
-    description:
-      "Sélection d'affiches A3 — La Vallée, Journée Mondiale des Droits de l'Homme, et autres compositions typographiques audacieuses.",
-    fullDescription:
-      "Sélection de travaux d'affiches A3 réalisées pour différents projets et causes. Composition typographique audacieuse, palettes de couleurs impactantes, et recherche graphique constante pour faire passer un message en un seul visuel.",
-    color: "#48BB78",
-    background: "#0A0A0A",
-    year: "2024",
-    disciplines: ["Affiche", "Typographie", "Print"],
-    cover: "/images/projects/affiches/affiche-01.jpg",
-    images: Array.from({ length: 3 }, (_, i) =>
-      `/images/projects/affiches/affiche-${String(i + 1).padStart(2, "0")}.jpg`
-    ),
-  },
-  {
-    slug: "underdog",
-    title: "Underdog",
-    category: "Logotype",
-    description:
-      "Création d'un logotype distinctif pour la marque Underdog. Recherche typographique et déclinaisons.",
-    color: "#4299E1",
-    year: "2024",
-    disciplines: ["Logotype", "Typographie"],
   },
 ];
 

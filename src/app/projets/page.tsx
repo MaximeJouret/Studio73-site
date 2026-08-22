@@ -18,7 +18,7 @@ export default function ProjetsPage() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-            [001] — Portfolio
+            [001] Portfolio
           </p>
           <h1
             className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
@@ -27,7 +27,7 @@ export default function ProjetsPage() {
             Projets<span className="text-foreground">.</span>
           </h1>
           <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
-            Chaque projet est une collaboration unique — pensée autour de vos
+            Chaque projet est une collaboration unique, pensée autour de vos
             besoins, de votre identité et de vos objectifs.
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ export default function ProjetsPage() {
                   {/* Year */}
                   <div className="col-span-3 md:col-span-2 hidden md:block">
                     <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono">
-                      {project.year ?? "—"}
+                      {project.year ?? ""}
                     </p>
                   </div>
 
@@ -121,33 +121,6 @@ export default function ProjetsPage() {
           })}
         </div>
 
-        {/* CTA */}
-        <AnimatedSection delay={0.2}>
-          <div className="mt-32 md:mt-48 py-16 md:py-20 px-6 md:px-12 border-t border-foreground/10">
-            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-              [+] — Et le vôtre ?
-            </p>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-              <h2
-                className="font-medium uppercase tracking-[-0.04em] leading-[0.9] text-foreground"
-                style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
-              >
-                Le prochain<br />
-                pourrait être le vôtre.
-              </h2>
-              <Link
-                href="/contact"
-                data-magnetic
-                className="group inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90 w-fit"
-              >
-                <span>Démarrer un projet</span>
-                <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
-                  <ArrowUpRight size={16} />
-                </span>
-              </Link>
-            </div>
-          </div>
-        </AnimatedSection>
       </div>
     </div>
   );

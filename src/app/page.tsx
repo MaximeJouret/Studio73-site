@@ -37,7 +37,7 @@ export default function Home() {
             loop
             playsInline
             preload="auto"
-            poster="/images/projects/rbfa/rbfa-06.jpg"
+            poster=""
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/video/intro.mp4" type="video/mp4" />
@@ -71,13 +71,13 @@ export default function Home() {
           className="uppercase font-medium tracking-[-0.04em] leading-[0.9] text-foreground"
           repeat={6}
         >
-          <span className="mr-12 text-[12vw] md:text-[9vw]">RBFA <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">RBFA <span className="text-[3vw] md:text-[2vw] text-foreground/40 uppercase tracking-[0.15em]">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
-          <span className="mr-12 text-[12vw] md:text-[9vw]">DFCO <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">DFCO <span className="text-[3vw] md:text-[2vw] text-foreground/40 uppercase tracking-[0.15em]">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
-          <span className="mr-12 text-[12vw] md:text-[9vw]">HERMÈS <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">HERMÈS <span className="text-[3vw] md:text-[2vw] text-foreground/40 uppercase tracking-[0.15em]">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
-          <span className="mr-12 text-[12vw] md:text-[9vw]">MOCRO KID <span className="text-[6vw] md:text-[4vw] text-foreground/40 font-mono">CONCEPT</span></span>
+          <span className="mr-12 text-[12vw] md:text-[9vw]">MOCRO KID <span className="text-[3vw] md:text-[2vw] text-foreground/40 uppercase tracking-[0.15em]">CONCEPT</span></span>
           <span className="mr-12 text-[12vw] md:text-[9vw] text-foreground/20">/</span>
         </TextMarquee>
       </section>
@@ -89,7 +89,7 @@ export default function Home() {
             <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
               <div>
                 <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-4 font-mono">
-                  [002] — Sélection
+                  [002] Sélection
                 </p>
                 <h2
                   className="font-medium uppercase tracking-[-0.04em] leading-[0.9]"
@@ -175,29 +175,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ MANIFESTO ============ */}
-      <section className="py-32 md:py-48 px-6 md:px-10 border-t border-border">
-        <div className="max-w-[1400px] mx-auto">
-          <AnimatedSection>
-            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-              [003] — Manifeste
-            </p>
-            <h2
-              className="font-medium uppercase tracking-[-0.04em] leading-[0.9] max-w-5xl text-foreground"
-              style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
-            >
-              On ne suit pas les codes. On les redessine.
-            </h2>
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* ============ FINAL CTA ============ */}
       <section className="py-32 md:py-40 px-6 md:px-10 border-t border-border">
         <div className="max-w-[1400px] mx-auto">
           <AnimatedSection>
             <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-              [004] — Contact
+              [003] Contact
             </p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-12">
               <h2

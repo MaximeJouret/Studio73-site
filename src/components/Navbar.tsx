@@ -43,7 +43,7 @@ export function Navbar() {
         <Link
           href="/"
           className="relative flex items-center"
-          aria-label="Studio 73 — Accueil"
+          aria-label="Studio 73"
         >
           <Image
             src="/logo_blanc.svg"

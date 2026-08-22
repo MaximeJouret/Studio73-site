@@ -35,7 +35,7 @@ export default function ServicesPage() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-            [002] — Expertises
+            [002] Expertises
           </p>
           <h1
             className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10"
@@ -44,9 +44,8 @@ export default function ServicesPage() {
             Services<span className="text-foreground">.</span>
           </h1>
           <p className="text-foreground/60 text-lg max-w-2xl leading-relaxed">
-            De la conception de logos au rebranding complet, nous donnons vie
-            à vos idées avec créativité et précision. Pas de bullshit, pas de
-            templates — du sur-mesure.
+            Logo, identité, direction artistique ou refonte complète : chaque
+            projet est conçu sur mesure, à partir de votre vision.
           </p>
         </motion.div>
 
@@ -60,7 +59,7 @@ export default function ServicesPage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h2
-                    className="font-medium uppercase tracking-[-0.02em] leading-none truncate group-hover:translate-x-2 transition-transform duration-500"
+                    className="font-medium uppercase tracking-[-0.02em] leading-none group-hover:translate-x-2 transition-transform duration-500"
                     style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)" }}
                   >
                     {service.name}
@@ -74,33 +73,6 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* CTA */}
-        <AnimatedSection delay={0.2}>
-          <div className="mt-32 md:mt-48 py-16 md:py-20 border-t border-foreground/10">
-            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-              [+] — Vous ne savez pas par où commencer ?
-            </p>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-              <h2
-                className="font-medium uppercase tracking-[-0.04em] leading-[0.9] text-foreground"
-                style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
-              >
-                On en parle<br />
-                autour d&apos;un café ?
-              </h2>
-              <Link
-                href="/contact"
-                data-magnetic
-                className="group inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90 w-fit"
-              >
-                <span>Démarrer un projet</span>
-                <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
-                  <ArrowUpRight size={16} />
-                </span>
-              </Link>
-            </div>
-          </div>
-        </AnimatedSection>
       </div>
     </div>
   );

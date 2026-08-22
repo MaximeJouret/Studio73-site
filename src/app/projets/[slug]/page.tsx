@@ -122,33 +122,6 @@ export default function ProjectDetailPage({
             </div>
           </AnimatedSection>
 
-          {/* Color palette */}
-          <AnimatedSection delay={0.3}>
-            <div className="mt-12 flex items-center gap-4 flex-wrap">
-              <p className="text-xs uppercase tracking-widest text-white/40">
-                Palette
-              </p>
-              <div className="flex gap-2">
-                <div
-                  className="w-10 h-10 rounded-full border border-white/20"
-                  style={{ backgroundColor: bg }}
-                  title="Fond"
-                />
-                <div
-                  className="w-10 h-10 rounded-full border border-white/20"
-                  style={{ backgroundColor: accent }}
-                  title="Accent"
-                />
-                {accentSecondary && (
-                  <div
-                    className="w-10 h-10 rounded-full border border-white/20"
-                    style={{ backgroundColor: accentSecondary }}
-                    title="Accent secondaire"
-                  />
-                )}
-              </div>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
@@ -164,7 +137,7 @@ export default function ProjectDetailPage({
                 >
                   <Image
                     src={img}
-                    alt={`${project.title} — visuel ${i + 1}`}
+                    alt={`${project.title} visuel ${i + 1}`}
                     width={1600}
                     height={1067}
                     className="w-full h-auto"
@@ -220,20 +193,16 @@ export default function ProjectDetailPage({
       <section className="py-32 px-6 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
-            <p
-              className="uppercase tracking-[0.3em] text-sm mb-4"
-              style={{ color: accent }}
-            >
+            <p className="uppercase tracking-[0.3em] text-sm mb-4 text-white/50">
               Un projet similaire ?
             </p>
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-              Travaillons <span style={{ color: accent }}>ensemble</span>
+              Travaillons ensemble
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300 text-white"
-                style={{ backgroundColor: accent }}
+                className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300 bg-white text-black"
               >
                 Démarrer un projet
                 <ArrowRight

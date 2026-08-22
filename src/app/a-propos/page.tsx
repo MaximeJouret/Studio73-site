@@ -14,24 +14,18 @@ const steps = [
   },
   {
     num: "02",
-    title: "Créer avec sens",
+    title: "Créer",
     description:
-      "Nous concevons des identités, concepts et supports qui ne sont pas seulement esthétiques — ils racontent une histoire, portent un message et renforcent votre positionnement.",
+      "Nous concevons des identités, concepts et supports qui ne sont pas seulement esthétiques, ils racontent une histoire, portent un message et renforcent votre positionnement.",
   },
   {
     num: "03",
-    title: "Designer avec exigence",
-    description:
-      "Chaque détail compte. Nous combinons créativité, sens du design et rigueur graphique pour produire des visuels impactants, modernes et durables.",
-  },
-  {
-    num: "04",
-    title: "Collaborer en transparence",
+    title: "Collaborer",
     description:
       "Vous êtes impliqué à chaque étape. Feedbacks, itérations, ajustements : nous avançons ensemble, dans un vrai dialogue de confiance.",
   },
   {
-    num: "05",
+    num: "04",
     title: "Finaliser & livrer",
     description:
       "Des livrables de qualité professionnelle, prêts à être déployés, et qui reflètent pleinement l'identité et l'ambition de votre marque.",
@@ -49,7 +43,7 @@ export default function AProposPage() {
           transition={{ duration: 0.7 }}
         >
           <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-            [003] — Studio
+            [003] Studio
           </p>
           <h1
             className="font-medium uppercase tracking-[-0.04em] leading-[0.85] mb-10 text-foreground"
@@ -96,7 +90,7 @@ export default function AProposPage() {
                 Je m&apos;appelle Loïc, et après un stage en agence et une
                 petite expérience en freelance, j&apos;ai décidé de lancer
                 Studio 73 pour donner vie à des projets ambitieux. Une vision
-                jeune, fraîche, à l&apos;affût des tendances — mais toujours
+                jeune, fraîche, à l&apos;affût des tendances, mais toujours
                 guidée par le sens.
               </p>
             </div>
@@ -107,7 +101,7 @@ export default function AProposPage() {
         <div className="mt-32 md:mt-48">
           <AnimatedSection>
             <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-              [II] — Méthode
+              [II] Méthode
             </p>
             <h2
               className="font-medium uppercase tracking-[-0.04em] leading-[0.9] mb-16 md:mb-20"
@@ -178,33 +172,6 @@ export default function AProposPage() {
           </div>
         </AnimatedSection>
 
-        {/* CTA */}
-        <AnimatedSection>
-          <div className="mt-32 md:mt-48 py-16 md:py-20 border-t border-foreground/10">
-            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-6 font-mono">
-              [+] — Et vous ?
-            </p>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-              <h2
-                className="font-medium uppercase tracking-[-0.04em] leading-[0.9] text-foreground"
-                style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)" }}
-              >
-                Travaillons<br />
-                ensemble.
-              </h2>
-              <Link
-                href="/contact"
-                data-magnetic
-                className="group inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90 w-fit"
-              >
-                <span>Nous contacter</span>
-                <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
-                  <ArrowUpRight size={16} />
-                </span>
-              </Link>
-            </div>
-          </div>
-        </AnimatedSection>
       </div>
     </div>
   );

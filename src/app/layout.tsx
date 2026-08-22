@@ -18,11 +18,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Studio 73 — Agence Créative",
+    default: "Studio 73",
     template: "%s | Studio 73",
   },
   description:
     "Studio 73 est une agence créative belge fondée à Bruxelles. Identités visuelles fortes, rebranding, logotype, motion design et plus encore.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   keywords: [
     "studio graphique",
     "agence créative",
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
     "logotype",
   ],
   openGraph: {
-    title: "Studio 73 — Agence Créative",
+    title: "Studio 73",
     description:
       "Identités visuelles fortes, sincères et impactantes. Basé à Bruxelles.",
     url: "https://studio-73.be",
