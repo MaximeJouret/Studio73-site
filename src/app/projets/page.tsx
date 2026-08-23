@@ -37,7 +37,7 @@ export default function ProjetsPage() {
           {projects.map((project, i) => {
             const hasDetailPage = !!project.cover;
             const cardContent = (
-              <div className="group relative overflow-hidden rounded-xl border border-foreground/10 transition-colors hover:bg-foreground/[0.03]">
+              <div className="group relative overflow-hidden border-t border-foreground/10 last:border-b last:border-foreground/10 transition-colors hover:bg-foreground/[0.03]">
                 <div className="grid grid-cols-12 gap-4 py-8 md:py-10 px-2 md:px-6 items-center">
                   {/* Index */}
                   <div className="col-span-2 md:col-span-1">
@@ -92,7 +92,7 @@ export default function ProjetsPage() {
                 {/* Hover preview image (peeks from left) */}
                 {project.cover && (
                   <div
-                    className="pointer-events-none absolute right-20 top-1/2 -translate-y-1/2 w-40 h-28 md:w-56 md:h-40 overflow-hidden rounded-md border border-foreground/20 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500"
+                    className="pointer-events-none absolute right-20 top-1/2 -translate-y-1/2 w-40 h-28 md:w-56 md:h-40 overflow-hidden rounded-md border-2 border-foreground/30 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500"
                     style={{
                       filter: "saturate(1.1)",
                     }}

@@ -72,7 +72,7 @@ export const projects: Project[] = [
       "Création d'affiches pour le festival Antwerp Poster Festival. Direction artistique audacieuse, compositions typographiques fortes et recherche graphique constante pour faire passer un message en un seul visuel.",
     color: "#FAFAFA",
     background: "#0A0A0A",
-    year: "2025",
+    year: "2026",
     disciplines: ["Affiche", "Typographie", "Print", "Direction artistique"],
     cover: "/images/projects/antwerp-poster-festival/antwerp-01.jpg",
     images: Array.from({ length: 2 }, (_, i) =>
@@ -89,7 +89,7 @@ export const projects: Project[] = [
       "Création d'une identité visuelle complète pour Jimbo. Du logotype à la charte graphique, en passant par les déclinaisons print et digitales. Un travail de branding complet, pensé pour marquer les esprits.",
     color: "#FAFAFA",
     background: "#0A0A0A",
-    year: "2025",
+    year: "2026",
     client: "Jimbo",
     disciplines: ["Rebranding", "Logotype", "Identité visuelle", "Print"],
     cover: "/images/projects/jimbo/jimbo-01.jpg",
