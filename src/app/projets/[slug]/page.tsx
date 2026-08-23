@@ -132,7 +132,7 @@ export default function ProjectDetailPage({
             {project.images.map((img, i) => (
               <AnimatedSection key={img} delay={Math.min(i * 0.04, 0.3)}>
                 <figure
-                  className="relative rounded-2xl overflow-hidden border border-white/10"
+                  className="relative rounded-2xl overflow-hidden border border-white/20"
                   style={{ backgroundColor: bg }}
                 >
                   <Image
