@@ -83,6 +83,7 @@ export const projects: Project[] = [
     slug: "jimbo",
     title: "Jimbo",
     category: "Rebranding",
+    tag: "Concept fictif",
     description:
       "Création d'une identité visuelle complète pour Jimbo. Logo, charte graphique et déclinaisons sur supports variés.",
     fullDescription:
