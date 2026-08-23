@@ -18,7 +18,7 @@ const socials = [
   { icon: IconX, href: "https://x.com/studio_73_", label: "X", handle: "@studio_73_" },
 ];
 
-const FORMSPREE_ID = "YOUR_FORMSPREE_ID"; // TODO: remplacer par l'ID Formspree
+const FORMSPREE_ID = "xeajdyva";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
