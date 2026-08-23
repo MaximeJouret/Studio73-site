@@ -9,7 +9,7 @@ import {
   IconLinkedin,
   IconX,
 } from "@/components/SocialIcons";
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 
 const socials = [
   { icon: IconInstagram, href: "https://instagram.com/studio73.be", label: "Instagram", handle: "@studio73.be" },
@@ -18,12 +18,37 @@ const socials = [
   { icon: IconX, href: "https://x.com/studio_73_", label: "X", handle: "@studio_73_" },
 ];
 
+const FORMSPREE_ID = "YOUR_FORMSPREE_ID"; // TODO: remplacer par l'ID Formspree
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -140,9 +165,9 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     {[
-                      { label: "Nom", type: "text", placeholder: "Votre nom" },
-                      { label: "Email", type: "email", placeholder: "votre@email.com" },
-                      { label: "Téléphone", type: "tel", placeholder: "+32 ..." },
+                      { label: "Nom", name: "name", type: "text", placeholder: "Votre nom" },
+                      { label: "Email", name: "email", type: "email", placeholder: "votre@email.com" },
+                      { label: "Téléphone", name: "phone", type: "tel", placeholder: "+32 ..." },
                     ].map((f) => (
                       <div key={f.label}>
                         <label className="block text-[10px] uppercase tracking-[0.25em] text-foreground/40 font-mono mb-2">
@@ -150,6 +175,7 @@ export default function ContactPage() {
                         </label>
                         <input
                           type={f.type}
+                          name={f.name}
                           required
                           className="w-full bg-transparent border-b border-foreground/15 px-0 py-3 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-foreground transition-colors text-base"
                           placeholder={f.placeholder}
@@ -161,18 +187,25 @@ export default function ContactPage() {
                         Message *
                       </label>
                       <textarea
+                        name="message"
                         required
                         rows={4}
                         className="w-full bg-transparent border-b border-foreground/15 px-0 py-3 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-foreground transition-colors resize-none text-base"
                         placeholder="Parlez-nous de votre projet..."
                       />
                     </div>
+                    {error && (
+                      <p className="text-red-400 text-sm">
+                        Une erreur est survenue. Réessayez ou contactez-nous par email.
+                      </p>
+                    )}
                     <button
                       type="submit"
+                      disabled={loading}
                       data-magnetic
-                      className="group w-full mt-6 inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90"
+                      className="group w-full mt-6 inline-flex items-center justify-between gap-6 bg-foreground text-background pl-6 pr-2 py-2 rounded-full uppercase tracking-[0.15em] text-sm font-medium transition-colors hover:bg-foreground/90 disabled:opacity-50"
                     >
-                      <span>Envoyer</span>
+                      <span>{loading ? "Envoi en cours..." : "Envoyer"}</span>
                       <span className="w-10 h-10 rounded-full bg-background text-foreground flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">
                         <Send size={14} />
                       </span>

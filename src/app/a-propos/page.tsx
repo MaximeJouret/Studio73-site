@@ -172,6 +172,32 @@ export default function AProposPage() {
           </div>
         </AnimatedSection>
 
+        {/* CTA */}
+        <AnimatedSection>
+          <div className="mt-32 md:mt-48 text-center">
+            <p className="text-foreground/50 uppercase tracking-[0.3em] text-[11px] mb-4 font-mono">
+              Et si c&apos;était vous le prochain ?
+            </p>
+            <h2
+              className="font-medium uppercase tracking-[-0.04em] leading-[0.9] mb-8"
+              style={{ fontSize: "clamp(2rem, 6vw, 5rem)" }}
+            >
+              Travaillons ensemble.
+            </h2>
+            <Link
+              href="/contact"
+              data-magnetic="true"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm uppercase tracking-widest transition-all duration-300 bg-foreground text-background hover:bg-foreground/90"
+            >
+              Démarrer un projet
+              <ArrowUpRight
+                size={16}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
+            </Link>
+          </div>
+        </AnimatedSection>
+
       </div>
     </div>
   );
