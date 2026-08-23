@@ -43,25 +43,6 @@ export const projects: Project[] = [
     ),
   },
   {
-    slug: "dfco-dijon",
-    title: "DFCO Dijon",
-    category: "Rebranding",
-    tag: "Concept fictif",
-    description:
-      "Refonte complète de l'identité visuelle du club de football DFCO Dijon. Logo, typographie, supports de communication et présence digitale.",
-    fullDescription:
-      "Refonte intégrale de l'identité visuelle du Dijon Football Côte-d'Or. De l'écusson à la signalétique du stade, en passant par les supports e-commerce, les cartes d'abonnés et les déclinaisons sur réseaux sociaux. Direction artistique pensée pour ré-affirmer la fierté du club et donner aux supporters une identité visuelle digne d'une grande équipe européenne.",
-    color: "#E53E3E",
-    background: "#0A0A0A",
-    year: "2025",
-    client: "DFCO Dijon",
-    disciplines: ["Rebranding", "Logotype", "Identité visuelle", "Web design", "Print"],
-    cover: "/images/projects/dfco-dijon/dijon-01.jpg",
-    images: Array.from({ length: 27 }, (_, i) =>
-      `/images/projects/dfco-dijon/dijon-${String(i + 1).padStart(2, "0")}.jpg`
-    ),
-  },
-  {
     slug: "antwerp-poster-festival",
     title: "Antwerp Poster Festival",
     category: "Affiche & Print",
@@ -95,6 +76,25 @@ export const projects: Project[] = [
     cover: "/images/projects/jimbo/jimbo-01.jpg",
     images: Array.from({ length: 9 }, (_, i) =>
       `/images/projects/jimbo/jimbo-${String(i + 1).padStart(2, "0")}.jpg`
+    ),
+  },
+  {
+    slug: "dfco-dijon",
+    title: "DFCO Dijon",
+    category: "Rebranding",
+    tag: "Concept fictif",
+    description:
+      "Refonte complète de l'identité visuelle du club de football DFCO Dijon. Logo, typographie, supports de communication et présence digitale.",
+    fullDescription:
+      "Refonte intégrale de l'identité visuelle du Dijon Football Côte-d'Or. De l'écusson à la signalétique du stade, en passant par les supports e-commerce, les cartes d'abonnés et les déclinaisons sur réseaux sociaux. Direction artistique pensée pour ré-affirmer la fierté du club et donner aux supporters une identité visuelle digne d'une grande équipe européenne.",
+    color: "#E53E3E",
+    background: "#0A0A0A",
+    year: "2025",
+    client: "DFCO Dijon",
+    disciplines: ["Rebranding", "Logotype", "Identité visuelle", "Web design", "Print"],
+    cover: "/images/projects/dfco-dijon/dijon-01.jpg",
+    images: Array.from({ length: 27 }, (_, i) =>
+      `/images/projects/dfco-dijon/dijon-${String(i + 1).padStart(2, "0")}.jpg`
     ),
   },
   {
