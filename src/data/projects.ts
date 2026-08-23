@@ -65,7 +65,6 @@ export const projects: Project[] = [
     slug: "antwerp-poster-festival",
     title: "Antwerp Poster Festival",
     category: "Affiche & Print",
-    tag: "Concept fictif",
     description:
       "Création d'affiches pour le festival Antwerp Poster Festival. Direction artistique audacieuse et compositions typographiques fortes.",
     fullDescription:
