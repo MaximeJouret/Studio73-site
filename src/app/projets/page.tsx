@@ -92,13 +92,16 @@ export default function ProjetsPage() {
                 {/* Hover preview image (peeks from left) */}
                 {project.cover && (
                   <div
-                    className="pointer-events-none absolute right-20 top-1/2 -translate-y-1/2 w-40 h-28 md:w-56 md:h-40 overflow-hidden rounded-md border border-foreground/15 bg-muted opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500"
+                    className="pointer-events-none absolute right-20 top-1/2 -translate-y-1/2 w-40 h-28 md:w-56 md:h-40 overflow-hidden rounded-md border border-foreground/20 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500"
+                    style={{
+                      filter: "saturate(1.1)",
+                    }}
                   >
                     <Image
                       src={project.cover}
                       alt=""
                       fill
-                      className="object-contain"
+                      className="object-cover"
                       sizes="240px"
                     />
                   </div>
