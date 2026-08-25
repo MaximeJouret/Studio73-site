@@ -123,6 +123,8 @@ export default function Home() {
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-[1.2s] ease-out"
                         sizes="(max-width: 768px) 100vw, 700px"
+                        priority={i < 2}
+                        loading={i < 2 ? "eager" : "lazy"}
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-500" />
